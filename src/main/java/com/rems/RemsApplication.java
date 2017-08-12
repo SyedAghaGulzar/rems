@@ -14,6 +14,9 @@ import org.springframework.web.servlet.view.JstlView;
 @SpringBootApplication
 public class RemsApplication {
 
+	@Autowired
+	private EntityManagerFactory entityManagerFactory;
+
 	public static void main(String[] args) {
 		SpringApplication.run(RemsApplication.class, args);
 	}
@@ -27,8 +30,6 @@ public class RemsApplication {
 	    return resolver;
 	}
 	
-	@Autowired
-	private EntityManagerFactory entityManagerFactory;
 
 	@Bean
 	SessionFactory getSessionFactory() {
