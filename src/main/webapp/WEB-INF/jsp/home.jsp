@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <html lang="en">
 <head>
@@ -34,10 +34,10 @@
 		<c:choose>
 			<c:when test="${mode == 'show'}">
 				<h2>Receipt</h2>
-				
-					<a href='<c:url value="/receipt/new"/>'><button type="button"
-							class="btn btn-primary btn-md pull-right">New Receipt</button></a>
-							<br>
+
+				<a href='<c:url value="/receipt/new"/>'><button type="button"
+						class="btn btn-primary btn-md pull-right">New Receipt</button></a>
+				<br>
 				<table class="table table-bordered">
 					<thead>
 						<tr>
@@ -87,8 +87,9 @@
 
 						<div class="col-xs-3 form-group">
 							<label for="date">Date:</label>
-							<fmt:formatDate pattern="MM/dd/yyyy" value="${receipt.date}" />
-							<form:input type="date" path="date" class="form-control" />
+							
+							<form:input type="date" path="date"
+								class=" form-control" />
 						</div>
 
 						<div class="col-xs-3 form-group">
@@ -101,15 +102,15 @@
 							<form:input type="text" class="form-control" path="amount" />
 						</div>
 						<div class="col-xs-3 form-group">
-								<label for="paymentType">Payment Type:</label> <form:input
-									type="text" class="form-control" path="paymentType"/>
-						</div> -->
-						<div class="col-xs-3 form-group">
-							<label for="babat">Babat:</label>
-							<form:input type="text" class="form-control" path="babat" />
+							<label for="paymentType">Payment Type:</label>
+							<form:input type="text" class="form-control" path="paymentType" />
 						</div>
-
+						</div>
 						<div class="col-xs-12">
+							<div class="col-xs-3 form-group">
+								<label for="babat">Babat:</label>
+								<form:input type="text" class="form-control" path="babat" />
+							</div>
 
 							<div class="col-xs-3 form-group">
 								<label for="bankName">Bank Name:</label>
@@ -130,7 +131,6 @@
 								<button type="submit" class="btn pull-center">Submit</button>
 							</div>
 						</div>
-					</div>
 
 
 				</form:form>
@@ -157,25 +157,25 @@
 							<form:input type="text" class="form-control" path="amount" />
 						</div>
 						<div class="col-xs-3 form-group">
-								<label for="paymentType">Payment Type:</label> <form:input
-									type="text" class="form-control" path="paymentType"/>
+							<label for="paymentType">Payment Type:</label>
+							<form:input type="text" class="form-control" path="paymentType" />
 						</div>
 						<div class="col-xs-3 form-group">
 							<label for="babat">Babat:</label>
 							<form:input type="text" class="form-control" path="babat" />
 						</div>
 						<div class="col-xs-3 form-group">
-								<label for="bankName">Bank Name:</label>
-								<form:input type="text" class="form-control" path="bankName" />
-							</div>
-							<div class="col-xs-3 form-group">
-								<label for="bankBranch">Branch:</label>
-								<form:input type="text" class="form-control" path="bankBranch" />
-							</div>
+							<label for="bankName">Bank Name:</label>
+							<form:input type="text" class="form-control" path="bankName" />
+						</div>
+						<div class="col-xs-3 form-group">
+							<label for="bankBranch">Branch:</label>
+							<form:input type="text" class="form-control" path="bankBranch" />
+						</div>
 
 						<div class="col-xs-12">
 
-							
+
 							<div class="col-xs-3 form-group">
 								<label for="referenceName">Reference:</label>
 								<form:input type="text" class="form-control"
