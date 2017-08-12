@@ -36,8 +36,8 @@
 				<h2>Receipt</h2>
 
 				<a href='<c:url value="/receipt/new"/>'><button type="button"
-						class="btn btn-primary btn-md pull-right">New Receipt</button></a>
-				<br>
+						class="btn btn-primary btn-md pull-right">New Receipt</button> <br><br><br><br>    </a>
+				
 				<table class="table table-bordered">
 					<thead>
 						<tr>
@@ -76,14 +76,15 @@
 				</table>
 			</c:when>
 			<c:when test="${mode == 'edit'}">
-				<form:form class="form-inline"
+			<h1>M Rehan Enterprises<br></h1>
+			<h2 style="text-align:center">Edit Receipt<br><br></h2>
+				<form:form class=".form-horizontal"
 					action="/receipt/update/${receipt.receiptId}" method="post"
 					modelAttribute="receipt">
 					<form:hidden class="form-control" value="${receipt.receiptId}"
 						path="receiptId" />
 
 					<div class="col-xs-12">
-						<form:hidden class="form-control" path="receiptId" />
 
 						<div class="col-xs-3 form-group">
 							<label for="date">Date:</label>
@@ -105,8 +106,7 @@
 							<label for="paymentType">Payment Type:</label>
 							<form:input type="text" class="form-control" path="paymentType" />
 						</div>
-						</div>
-						<div class="col-xs-12">
+						
 							<div class="col-xs-3 form-group">
 								<label for="babat">Babat:</label>
 								<form:input type="text" class="form-control" path="babat" />
@@ -120,23 +120,27 @@
 								<label for="bankBranch">Branch:</label>
 								<form:input type="text" class="form-control" path="bankBranch" />
 							</div>
-							<div class="col-xs-3 form-group">
+							<div class="col-xs-6 form-group">
 								<label for="referenceName">Reference:</label>
 								<form:input type="text" class="form-control"
-									path="referenceName" />
+									path="referenceName" /><br><br>
 							</div>
-						</div>
 						<div class="col-xs-12">
-							<div class="col-sx-12">
-								<button type="submit" class="btn pull-center">Submit</button>
+							<div class="col-sx-6">
+								<button type="submit"
+									style="display: block; width =50%; margin: 0 auto;" class="btn btn-lg">Update</button>
 							</div>
 						</div>
+					</div>
 
 
 				</form:form>
 
 			</c:when>
 			<c:when test="${mode == 'new_receipt'}">
+			
+			<h1>M Rehan Enterprises<br></h1>
+			<h2 style="text-align:center">New Receipt<br><br></h2>
 				<form:form class=".form-horizontal" action="/receipt/new"
 					method="post" modelAttribute="receipt">
 					<div class="col-xs-12">
@@ -173,18 +177,14 @@
 							<form:input type="text" class="form-control" path="bankBranch" />
 						</div>
 
-						<div class="col-xs-12">
-
-
-							<div class="col-xs-3 form-group">
+							<div class="col-xs-6 form-group">
 								<label for="referenceName">Reference:</label>
 								<form:input type="text" class="form-control"
-									path="referenceName" />
+									path="referenceName" /><br><br>
 							</div>
-						</div>
 						<div class="col-xs-12">
-							<div class="col-sx-12">
-								<button type="submit" class="btn">Submit</button>
+							<div class="col-sx-6">
+								<button type="submit" style="display: block;width=50%; margin: 0 auto;" class="btn btn-lg">Save</button>
 							</div>
 						</div>
 					</div>
