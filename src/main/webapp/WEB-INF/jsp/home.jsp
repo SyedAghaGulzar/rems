@@ -87,9 +87,9 @@
 
 						<div class="col-xs-3 form-group">
 							<label for="date">Date:</label>
-							
-							<form:input type="date" path="date"
-								class=" form-control" />
+							<fmt:formatDate pattern="dd/MM/yyyy" value="${receipt.date}" var="vacancyDate" />
+							<form:input type="text" path="date"
+								class=" form-control" value="${vacancyDate}"/>
 						</div>
 
 						<div class="col-xs-3 form-group">
@@ -143,8 +143,7 @@
 						<form:hidden class="form-control" path="receiptId" />
 						<div class="col-xs-3 form-group">
 							<label for="date">Date:</label>
-							<fmt:formatDate pattern="MM/dd/yyyy" value="${receipt.date}" />
-							<form:input type="date" class="form-control" path="date" />
+							<form:input type="text" class="form-control" path="date" />
 						</div>
 
 						<div class="col-xs-3 form-group">
