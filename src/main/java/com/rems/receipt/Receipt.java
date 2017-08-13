@@ -9,6 +9,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -16,6 +17,7 @@ import com.rems.enumeration.PaymentType;
 
 
 @Entity
+@NamedQuery(name = "Receipt.findAll", query="select r from Receipt r order by r.receiptId desc")
 public class Receipt {
 
 	@Id
