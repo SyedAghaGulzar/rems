@@ -21,7 +21,7 @@ public class Receipt {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "receipt_id")
-	private int receiptId;
+	private int receiptId = -1;
 
 	 @DateTimeFormat(pattern = "dd/MM/yyyy")
 	@Column(name="date")
@@ -121,6 +121,10 @@ public class Receipt {
 		this.referenceName = referenceName;
 	}
 
+	public boolean isNew() {
+		return this.receiptId == -1;
+	}
+	
 	@Override
 	public String toString() {
 		return "Receipt [receiptId=" + receiptId + ", date=" + date + ", cashReceivedFrom=" + cashReceivedFrom

@@ -30,7 +30,7 @@ public class GlobalExceptionHandler {
     	logger.error(errors.toString());
         
         ModelAndView modelAndView = new ModelAndView();                
-        modelAndView.setViewName("exception");
+        modelAndView.setViewName("error/exception");
         modelAndView.addObject("url", req.getRequestURI());
         
         return modelAndView;
