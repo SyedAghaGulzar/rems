@@ -96,4 +96,11 @@
 	</div>
 	 
 </body>
+<script type="text/javascript">
+$(document).ready(function() {
+    $("#receipt_page").addClass('active');
+} );
+</script>
+
 </html>
+

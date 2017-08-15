@@ -9,8 +9,6 @@
 <jsp:include page="../fragment/header.jsp" />
 
 <head>
-	<!-- Website CSS style -->
-		<link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
 	     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -101,6 +99,7 @@
 <script type="text/javascript">
 $(document).ready(function() {
     $('#rec_table').DataTable();
+    $("#receipt_page").addClass('active');
 } );
 </script>
     
