@@ -35,7 +35,7 @@
 			<div class="col-xs-12">
 
 				<div class="col-xs-3 form-group">
-					<label for="date">Date:</label>
+					<label for="date">Date</label>
 					<fmt:formatDate pattern="dd/MM/yyyy" value="${receipt.date}"
 						var="date" />
 					<form:input type="text" path="date" class=" form-control"
@@ -43,56 +43,58 @@
 				</div>
 
 				<div class="col-xs-3 form-group">
-					<label for="cashReceivedFrom">Cash Received From:</label>
+					<label for="cashReceivedFrom">Received From</label>
 					<form:input type="text" class="form-control"
 						path="cashReceivedFrom" />
 				</div>
 				<div class="col-xs-3 form-group">
-					<label for="amount">Amount:</label>
+					<label for="amount">Amount</label>
 					<form:input type="text" class="form-control" path="amount" />
 				</div>
 				<div class="col-xs-3 form-group">
-					<label for="paymentType">Payment Type:</label>
+					<label for="paymentType">Payment Type</label>
 					<form:select path="paymentType" class="form-control">
 						<form:option value="CASH" label="Cash" />
 						<form:option value="CHEQUE" label="Cheque" />
 					</form:select>
 				</div>
 
-				<div class="col-xs-3 form-group">
-					<label for="babat">Babat:</label>
-					<form:input type="text" class="form-control" path="babat" />
+				<div class="col-xs-6 form-group">
+					<label for="forPaymentOf">For Payment of</label>
+					<form:input type="text" class="form-control" path="forPaymentOf" />
 				</div>
 
 				<div class="col-xs-3 form-group">
-					<label for="bankName">Bank Name:</label>
+					<label for="bankName">Bank</label>
 					<form:input type="text" class="form-control" path="bankName" />
 				</div>
 				<div class="col-xs-3 form-group">
-					<label for="bankBranch">Branch:</label>
+					<label for="bankBranch">Branch</label>
 					<form:input type="text" class="form-control" path="bankBranch" />
 				</div>
-				<div class="col-xs-6 form-group">
-					<label for="referenceName">Reference:</label>
-					<form:input type="text" class="form-control" path="referenceName" />
-					<br> <br>
+				<div class="col-xs-3 form-group">
+					<label for="chequeNo">Cheque No</label>
+					<form:input type="text" class="form-control" path="chequeNo" />
 				</div>
-				<div class="col-xs-12">
-					<div class="col-sx-6">
-						<button type="submit"
-							style="display: inline; width =50%;"
-							class="btn btn-lg">${button}</button>
+				<div class="col-xs-3 form-group">
+					<label for="cashReceivedBy">Received By</label>
+					<form:input type="text" class="form-control" path="cashReceivedBy" /><br><br>
+				</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-3"></div>
+					<div class="col-xs-3"></div>
+					<div class="col-xs-3">
+					<button type="submit"
+							class="btn btn-lg btn-primary btn-sx">${button}</button>
+						<button type="button" onclick="location.href='<c:url value="/receipt" />'"
+							class="btn btn-lg btn-primary btn-sx">Cancel</button>
 					</div>
-					<div class="col-sx-6">		
-							<button type="button" onclick="location.href='<c:url value="/receipt" />'"
-							style="display: inline; width =50%;"
-							class="btn btn-lg">Cancel</button>
-					</div>		
 				</div>
-			</div>
 
 		</form:form>
 
 	</div>
+	 
 </body>
 </html>

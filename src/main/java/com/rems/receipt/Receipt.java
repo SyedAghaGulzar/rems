@@ -39,17 +39,22 @@ public class Receipt {
 	@Column(name = "payment_type")
 	private PaymentType paymentType;
 
-	@Column(name="babat")
-	private String babat;
+	@Column(name="for_payment_of")
+	private String forPaymentOf;
 
 	@Column(name = "bank_name")
 	private String bankName;
 
 	@Column(name = "bank_branch")
 	private String bankBranch;
+	
+	@Column(name = "cheque_no")
+	private String chequeNo;
 
-	@Column(name = "reference_name")
-	private String referenceName;
+
+	@Column(name = "cash_received_by")
+	private String cashReceivedBy;
+	
 
 	public int getReceiptId() {
 		return receiptId;
@@ -91,12 +96,12 @@ public class Receipt {
 		this.paymentType = paymentType;
 	}
 
-	public String getBabat() {
-		return babat;
+	public String getforPaymentOf() {
+		return forPaymentOf;
 	}
 
-	public void setBabat(String babat) {
-		this.babat = babat;
+	public void setforPaymentOf(String forPaymentOf) {
+		this.forPaymentOf = forPaymentOf;
 	}
 
 	public String getBankName() {
@@ -114,13 +119,21 @@ public class Receipt {
 	public void setBankBranch(String bankBranch) {
 		this.bankBranch = bankBranch;
 	}
-
-	public String getReferenceName() {
-		return referenceName;
+	
+	public String getChequeNo() {
+		return chequeNo;
 	}
 
-	public void setReferenceName(String referenceName) {
-		this.referenceName = referenceName;
+	public void setChequeNo(String chequeNo) {
+		this.chequeNo = chequeNo;
+	}
+
+	public String getCashReceivedBy() {
+		return cashReceivedBy;
+	}
+
+	public void setCashReceivedBy(String cashReceivedBy) {
+		this.cashReceivedBy = cashReceivedBy;
 	}
 
 	public boolean isNew() {
@@ -130,7 +143,7 @@ public class Receipt {
 	@Override
 	public String toString() {
 		return "Receipt [receiptId=" + receiptId + ", date=" + date + ", cashReceivedFrom=" + cashReceivedFrom
-				+ ", amount=" + amount + ", paymentType=" + paymentType + ", babat=" + babat + ", bankName=" + bankName
-				+ ", bankBranch=" + bankBranch + ", referenceName=" + referenceName + "]";
+				+ ", amount=" + amount + ", paymentType=" + paymentType + ", forPaymentOf=" + forPaymentOf + ", bankName=" + bankName
+				+ ", bankBranch=" + bankBranch + ", cashReceivedBy=" + cashReceivedBy + "]";
 	}
 }
