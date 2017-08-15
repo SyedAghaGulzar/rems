@@ -11,18 +11,18 @@
 	<div class="container">
 
 		<a href='<c:url value="/receipt/add"/>'><button type="button"
-				class="btn btn-primary btn-sx pull-right">Add New Receipt</button> <br>
-		<br> </a>
+				class="btn btn-primary btn-sx pull-right">Add New Receipt</button> <br><br><br>
+		</a>
 
 
         <div class="row">
 			<div class="col-md-12">
-				<div class="panel panel-primary">
+				<div class="panel-primary">
 					<div class="panel-heading">
 						<h3 class="panel-title">Receipt List</h3>						
 					</div>
 					<br>
-        <div class="table-responsive">
+        <div class="table-responsive" style="overflow: hidden;">
 		<table class="table table-bordered dt-responsive nowrap table table-striped" id="rec_table">
 			<thead>
 				<tr>
