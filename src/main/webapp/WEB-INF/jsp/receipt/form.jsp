@@ -54,8 +54,7 @@
 				<div class="col-xs-3 form-group">
 					<label for="paymentType">Payment Type</label>
 					<form:select path="paymentType" class="form-control">
-						<form:option value="CASH" label="Cash" />
-						<form:option value="CHEQUE" label="Cheque" />
+						<form:options items="${paymentTypes}"/>
 					</form:select>
 				</div>
 
