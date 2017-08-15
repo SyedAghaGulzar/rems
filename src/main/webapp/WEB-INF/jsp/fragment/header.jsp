@@ -14,10 +14,9 @@
 .navbar a, .dropdown-menu>li>a, .dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover, .navbar-toggle{
  color: #fff;
 }
-.navbar .navbar-nav>li>a:hover {
+ .navbar .navbar-nav>li>a:hover {
   color: #000;
 }
-
 </style>
 </head>
 
@@ -27,8 +26,8 @@
 				<a class="navbar-brand" style="color: #fff" href="#">M Rehan
 					Enterprises</a>
 			</div>
-			<ul class="nav navbar-nav tabs-left">
-				<li class="active"><a href="#" data-toggle="tab"><span class="glyphicon glyphicon-th" aria-hidden="true"></span> DASHBOARD</a></li>
+			<ul class="nav nav-tabs">
+				<li class="nav active" data-toggle="tab" ><a href="#"><span class="glyphicon glyphicon-th" aria-hidden="true"></span> DASHBOARD</a></li>
 				<li><a href='<c:url value="/receipt" />'>RECEIPT</a></li>
 				<li><a href='<c:url value="/receipt/${1}"/>'>CASH VOUCHER</a></li>
 				<li><a href="#">GENERAL VOUCHER</a></li>
