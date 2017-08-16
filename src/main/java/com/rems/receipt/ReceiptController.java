@@ -1,6 +1,5 @@
 package com.rems.receipt;
 
-import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -68,5 +67,12 @@ public class ReceiptController {
 		receiptService.deleteReceipt(id);
 		return "redirect:/receipt";
 	}
+	// print receipt
+		@RequestMapping(value = "/print/{id}")
+		public String printRecipet(@ModelAttribute Receipt receipt,Model model, @PathVariable int id) {
+			model.addAttribute("receipt", receiptService.getReceiptById(id));
+			return "receipt/preview";
+		}
+		
 
 }

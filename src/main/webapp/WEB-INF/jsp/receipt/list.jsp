@@ -28,20 +28,17 @@
 <br>
 
 	<div class="container">
-	    <!-- <a href="#" class="btn btn-primary btn-sx pull-right">
-      <span class="glyphicon glyphicon-print"></span> Print 
-        </a> -->
 		<a href='<c:url value="/receipt/add"/>'><button type="button"
 				class="btn btn-primary btn-sx pull-right">Add New Receipt</button> <br><br>
 		</a>
         <div class="row">
 			<div class="col-md-12">
-				<div class="panel-primary">
+				<div class="panel panel-primary">
 					<div class="panel-heading">
 						<h3 class="panel-title">Receipt List</h3>						
 					</div>
 					<br>
-        <div class="table-responsive" style="overflow: hidden;">
+        <div class="table-responsive">
 		<table class="table table-bordered dt-responsive nowrap table table-striped" id="rec_table">
 			<thead style="background-color:#689efd">
 				<tr>
@@ -64,11 +61,10 @@
 				<c:forEach var="receipt" items="${receipts}">
 					<tr>
 					    <td><a href="/receipt/${receipt.receiptId}">
-						 <span title="Edit" class="glyphicon glyphicon-pencil" ></span></a>
+						 <span title="Edit" class="glyphicon glyphicon-pencil" ></span></a>&nbsp;
 				         <a href="/receipt/delete/${receipt.receiptId}"> 
-				         <span title="Delete" class="glyphicon glyphicon-trash"></span>
-						</a>
-						<a href="/receipt/${receipt.receiptId}">
+				         <span title="Delete" class="glyphicon glyphicon-trash"></span></a>&nbsp;
+						<a href="/receipt/print/${receipt.receiptId}">
 						<span title="Print" class="glyphicon glyphicon-print"></span></a>
 						</td>
 						<td> 
