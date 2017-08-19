@@ -6,29 +6,38 @@
 <jsp:include page="../fragment/header.jsp" />
 <head>
 <style>
-p{
-text-decoration: none; text-align:center;border-bottom: 1px solid black;padding:5px;
+p {
+	text-decoration: none;
+	text-align: center;
+	border-bottom: 1px solid black;
+	padding: 5px;
 }
-@page { size: auto;  margin: 5mm; }
-h1{
-text-align:center;
+
+@page {
+	size: auto;
+	margin: 5mm;
+}
+
+h1 {
+	text-align: center;
 }
 </style>
 
 </head>
 
 <body>
-<h1>M Rehan Enterprises </h1>
-<br><br>
+	<h1>M Rehan Enterprises</h1>
+	<br>
+	<br>
 	<div class="container">
 		<form:form class="form-inline" modelAttribute="receipt">
 			<form:hidden class="form-control" value="${receipt.receiptId}"
 				path="receiptId" />
 
-			
+
 
 			<div class="col-xs-12">
-<div class="col-xs-4 form-group row">
+				<div class="col-xs-4 form-group row">
 					<label for="date" class="col-sm-2 col-form-label">Date:</label>
 					<fmt:formatDate pattern="dd/MM/yyyy" value="${receipt.date}"
 						var="date" />
@@ -38,8 +47,8 @@ text-align:center;
 						</p>
 					</div>
 				</div>
-				<div class="col-xs-4 form-group row">				
-			<h3 style="text-align: center">Cash Receipt</h3>	
+				<div class="col-xs-4 form-group row">
+					<h3 style="text-align: center">Cash Receipt</h3>
 				</div>
 
 				<div class="col-xs-4 form-group row">
@@ -82,12 +91,14 @@ text-align:center;
 				</div>
 
 				<div class="col-xs-10 form-group row">
-					<label for="forPaymentOf" class="col-sm-2 col-form-label">For Payment of</label>
+					<label for="forPaymentOf" class="col-sm-2 col-form-label">For
+						Payment of</label>
 					<div class="col-sm-10">
-					<p>
-						<c:out value="${receipt.forPaymentOf}" />
-					</p><br>
-				</div>
+						<p>
+							<c:out value="${receipt.forPaymentOf}" />
+						</p>
+						<br>
+					</div>
 				</div>
 
 				<div class="col-xs-3 form-group">
@@ -117,32 +128,33 @@ text-align:center;
 				</div>
 			</div>
 			<div class="col-xs-12">
-			<div class="col-xs-6">
-			<label class="col-sm-2 col-form-label">Signature:</label>
+				<div class="col-xs-6">
+					<label class="col-sm-2 col-form-label">Signature:</label>
 					<div class="col-sm-6">
-						<p>
-						</p>
+						<p></p>
 					</div>
+				</div>
+				<div class="col-xs-4"></div>
+				<button id="printpagebutton" type="button"
+					class="btn btn-primary btn-sx pull-right" onclick="myFunction()">Print
+					Receipt</button>
 			</div>
-			<div class="col-xs-4"></div>
-			<button id="printpagebutton" type="button"
-				class="btn btn-primary btn-sx pull-right" onclick="myFunction()">Print Receipt</button>	
-			</div>			
 		</form:form>
 	</div>
-	 
+
 </body>
 <script type="text/javascript">
-$(document).ready(function() {
-    $("#receipt_page").addClass('active');
-} );
-function myFunction() {
-	
-	var printButton = document.getElementById("printpagebutton");
-	printButton.style.visibility = 'hidden';
-	document.title = "M Rehan Enterprises";window.print();
-    printButton.style.visibility = 'visible';
-}
+	$(document).ready(function() {
+		$("#receipt_page").addClass('active');
+	});
+	function myFunction() {
+
+		var printButton = document.getElementById("printpagebutton");
+		printButton.style.visibility = 'hidden';
+		document.title = "M Rehan Enterprises";
+		window.print();
+		printButton.style.visibility = 'visible';
+	}
 </script>
 
 </html>
