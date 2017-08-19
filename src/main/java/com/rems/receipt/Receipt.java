@@ -9,11 +9,14 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.rems.enumeration.PaymentType;
+import com.rems.party.Party;
 
 
 @Entity
@@ -25,13 +28,14 @@ public class Receipt {
 	@Column(name = "receipt_id")
 	private int receiptId = -1;
 
-	 @DateTimeFormat(pattern = "dd/MM/yyyy")
+	@ManyToOne
+	@JoinColumn(name="party_id",nullable=true)
+	private Party party;
+
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	@Column(name="date")
 	private Date date;
-
-	@Column(name = "cash_received_from")
-	private String cashReceivedFrom;
-
+	
 	@Column(name="amount")
 	private Double amount;
 
@@ -51,10 +55,8 @@ public class Receipt {
 	@Column(name = "cheque_no")
 	private String chequeNo;
 
-
 	@Column(name = "cash_received_by")
 	private String cashReceivedBy;
-	
 
 	public int getReceiptId() {
 		return receiptId;
@@ -72,12 +74,12 @@ public class Receipt {
 		this.date = date;
 	}
 
-	public String getCashReceivedFrom() {
-		return cashReceivedFrom;
+	public Party getParty() {
+		return party;
 	}
 
-	public void setCashReceivedFrom(String cashReceivedFrom) {
-		this.cashReceivedFrom = cashReceivedFrom;
+	public void setParty(Party party) {
+		this.party = party;
 	}
 
 	public Double getAmount() {
@@ -142,7 +144,7 @@ public class Receipt {
 	
 	@Override
 	public String toString() {
-		return "Receipt [receiptId=" + receiptId + ", date=" + date + ", cashReceivedFrom=" + cashReceivedFrom
+		return "Receipt [receiptId=" + receiptId + ", date=" + date + ", cashReceivedFrom=" + party
 				+ ", amount=" + amount + ", paymentType=" + paymentType + ", forPaymentOf=" + forPaymentOf + ", bankName=" + bankName
 				+ ", bankBranch=" + bankBranch + ", cashReceivedBy=" + cashReceivedBy + "]";
 	}

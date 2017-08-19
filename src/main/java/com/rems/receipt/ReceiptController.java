@@ -1,6 +1,5 @@
 package com.rems.receipt;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.rems.enumeration.PaymentType;
+import com.rems.party.PartyService;
 
 @Controller
 @RequestMapping("/receipt")
@@ -17,6 +17,9 @@ public class ReceiptController {
 
 	@Autowired
 	private ReceiptService receiptService;
+
+	@Autowired
+	private PartyService partyService;
 
 	// view all receipts
 	@RequestMapping
@@ -28,25 +31,25 @@ public class ReceiptController {
 	// edit receipt form
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public String getRecipet(@PathVariable int id, Model model) {
-		
-		model
-		.addAttribute("receipt", receiptService.getReceiptById(id))
-		.addAttribute("paymentTypes", PaymentType.findAll());
-		
+
+		model.addAttribute("receipt", receiptService.getReceiptById(id))
+			 .addAttribute("paymentTypes",PaymentType.findAll())
+			 .addAttribute("partyList",partyService.getAllParties());
+
 		return "receipt/form";
 	}
-	
+
 	// add receipt form
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public String receiptForm(Model model) {
-		
-		model
-		.addAttribute("receipt", new Receipt())
-		.addAttribute("paymentTypes", PaymentType.findAll());
-		
+
+		model.addAttribute("receipt", new Receipt())
+			 .addAttribute("paymentTypes", PaymentType.findAll())
+			 .addAttribute("partyList",partyService.getAllParties());
+
 		return "receipt/form";
 	}
-	
+
 	// save new receipt
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	public String saveReceipt(Model model, @ModelAttribute("receipt") Receipt receipt) {
@@ -60,19 +63,19 @@ public class ReceiptController {
 		receiptService.updateReceiptById(id, receipt);
 		return "redirect:/receipt";
 	}
-	
+
 	// delete receipt
 	@RequestMapping(value = "/delete/{id}")
 	public String deleteRecipet(Model model, @PathVariable int id) {
 		receiptService.deleteReceipt(id);
 		return "redirect:/receipt";
 	}
+
 	// print receipt
-		@RequestMapping(value = "/print/{id}")
-		public String printRecipet(@ModelAttribute Receipt receipt,Model model, @PathVariable int id) {
-			model.addAttribute("receipt", receiptService.getReceiptById(id));
-			return "receipt/preview";
-		}
-		
+	@RequestMapping(value = "/print/{id}")
+	public String printRecipet(@ModelAttribute Receipt receipt, Model model, @PathVariable int id) {
+		model.addAttribute("receipt", receiptService.getReceiptById(id));
+		return "receipt/preview";
+	}
 
 }

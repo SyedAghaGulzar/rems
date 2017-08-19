@@ -23,19 +23,16 @@ public class ReceiptService {
 		return receiptRepository.findOne(id);
 	}
 
-	public String updateReceiptById(int id, Receipt receipt) {
+	public void updateReceiptById(int id, Receipt receipt) {
 		 receiptRepository.save(receipt);
-		 return "index";
 	}
 	
-	public String save(Receipt receipt) {
+	public void save(Receipt receipt) {
 		 receiptRepository.save(receipt);
-		 return "index";
 	}
 
-	public String deleteReceipt(int id) {
+	public void deleteReceipt(int id) {
 		receiptRepository.delete(id);
-		return "index";
 	}
 
 }

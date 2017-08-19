@@ -29,9 +29,8 @@
 				Enterprises</a>
 		</div>
 		<ul class="nav nav-tabs" id="header-navigation-bar">
-			<li id="dashboard_page" class="nav" data-toggle="tab"><a
-				href="#"><span class="glyphicon glyphicon-th" aria-hidden="true"></span>
-					DASHBOARD</a></li>
+			<li id="dashboard_page">
+					<a href='<c:url value="/party" />'><span class="glyphicon glyphicon-th" aria-hidden="true"></span>DASHBOARD</a></li>
 			<li id="receipt_page"><a href='<c:url value="/receipt" />'>RECEIPT</a></li>
 			<li id="cash_voucher_page"><a
 				href='<c:url value="/receipt/${1}"/>'>CASH VOUCHER</a></li>
