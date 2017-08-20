@@ -6,7 +6,7 @@
 
 <html>
 
-<jsp:include page="../fragment/header.jsp" />
+<jsp:include page="../../fragment/header.jsp" />
 
 <head>
         <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
@@ -28,7 +28,7 @@
 <br>
 
 	<div class="container">
-		<a href='<c:url value="/cash_voucher/add"/>'><button type="button"
+		<a href='<c:url value="/voucher/cash/add"/>'><button type="button"
 				class="btn btn-primary btn-sx pull-right">Add New Cash Voucher</button> <br><br>
 		</a>
         <div class="row">
@@ -60,11 +60,11 @@
 			<tbody>
 				<c:forEach var="cashVoucher" items="${cash_vouchers}">
 					<tr>
-					    <td><a href="/cash_voucher/${cashVoucher.cashVoucherId}">
+					    <td><a href="/voucher/cash/${cashVoucher.cashVoucherId}">
 						 <span title="Edit" class="glyphicon glyphicon-pencil" ></span></a>&nbsp;
-				         <a href="/cash_voucher/delete/${cashVoucher.cashVoucherId}"> 
+				         <a href="/voucher/cash/delete/${cashVoucher.cashVoucherId}"> 
 				         <span title="Delete" class="glyphicon glyphicon-trash"></span></a>&nbsp;
-						<a href="/cash_voucher/print/${cashVoucher.cashVoucherId}">
+						<a href="/voucher/cash/print/${cashVoucher.cashVoucherId}">
 						<span title="Print" class="glyphicon glyphicon-print"></span></a>
 						</td>
 						<td> 

@@ -33,7 +33,7 @@
 					<a href='<c:url value="/party" />'><span class="glyphicon glyphicon-th" aria-hidden="true"></span>DASHBOARD</a></li>
 			<li id="receipt_page"><a href='<c:url value="/receipt" />'>RECEIPT</a></li>
 			<li id="cash_voucher_page"><a
-				href='<c:url value="/cash_voucher"/>'>CASH VOUCHER</a></li>
+				href='<c:url value="/voucher/cash"/>'>CASH VOUCHER</a></li>
 			<li id="general_voucher_page"><a href="#">GENERAL VOUCHER</a></li>
 		</ul>
 	</div>

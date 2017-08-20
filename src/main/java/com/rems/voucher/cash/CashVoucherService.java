@@ -1,4 +1,4 @@
-package com.rems.cashvoucher;
+package com.rems.voucher.cash;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -3,7 +3,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <html lang="en">
-<jsp:include page="../fragment/header.jsp" />
+<jsp:include page="../../fragment/header.jsp" />
 <body>
 	<div class="container">
 
@@ -12,14 +12,14 @@
 		</h1>
 		<c:choose>
 			<c:when test="${cash_voucher['new']}">
-				<c:set var="action" value="/cash_voucher/add" />
+				<c:set var="action" value="/voucher/cash/add" />
 				<c:set var="button" value="Save" />
 				<h2 style="text-align: center">
 					Add Cash Voucher<br> <br>
 				</h2>
 			</c:when>
 			<c:otherwise>
-				<c:set var="action" value="/cash_voucher/update/${cash_voucher.cashVoucherId}" />
+				<c:set var="action" value="/voucher/cash/update/${cash_voucher.cashVoucherId}" />
 				<c:set var="button" value="Update" />
 				<h2 style="text-align: center">
 					Edit Cash Voucher<br> <br>
@@ -89,7 +89,7 @@
 				<div class="col-xs-3">
 					<button type="submit" class="btn btn-lg btn-primary btn-sx">${button}</button>
 					<button type="button"
-						onclick="location.href='<c:url value="/cash_voucher" />'"
+						onclick="location.href='<c:url value="/voucher/cash" />'"
 						class="btn btn-lg btn-primary btn-sx">Cancel</button>
 				</div>
 			</div>
