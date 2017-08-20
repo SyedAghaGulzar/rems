@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -20,7 +21,10 @@ import com.rems.party.Party;
 
 
 @Entity
-@NamedQuery(name = "Receipt.findAll", query="select r from Receipt r order by r.receiptId desc")
+@NamedQueries({
+@NamedQuery(name = "Receipt.findAll", query="from Receipt r order by r.receiptId desc"),
+@NamedQuery(name = "Receipt.findAllByParty", query="from Receipt r where r.party.partyId=:partyId order by r.receiptId desc")
+})
 public class Receipt {
 
 	@Id

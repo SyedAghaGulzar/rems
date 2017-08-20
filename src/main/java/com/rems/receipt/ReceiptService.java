@@ -34,5 +34,14 @@ public class ReceiptService {
 	public void deleteReceipt(int id) {
 		receiptRepository.delete(id);
 	}
-
+	
+	public List<Receipt> findAllByPartyId(int partyId) {
+		List<Receipt> receipts = new ArrayList<>();
+		receiptRepository.findAllByParty(partyId).forEach(receipts::add);
+		return receipts;
+	}
+	
+	public double calculateTotalAmount(List<Receipt> receipts) {
+		return receipts.stream().mapToDouble(r -> r.getAmount()).sum();
+	}
 }

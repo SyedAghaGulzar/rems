@@ -1,5 +1,7 @@
 package com.rems.receipt;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -76,6 +78,20 @@ public class ReceiptController {
 	public String printRecipet(@ModelAttribute Receipt receipt, Model model, @PathVariable int id) {
 		model.addAttribute("receipt", receiptService.getReceiptById(id));
 		return "receipt/preview";
+	}
+	
+	// generate receipts for specific party
+	@RequestMapping(value = "/party/{partyId}")
+	public String generatePartyRecipet(@ModelAttribute Receipt receipt, Model model, @PathVariable int partyId) {
+		List<Receipt> receipts = receiptService.findAllByPartyId(partyId);
+		model.addAttribute("receipt",receipts);
+		model.addAttribute("total",receiptService.calculateTotalAmount(receipts));
+		
+		// this for loop is just for proof of concept and must be deleted later
+		for(int i=0; i<receipts.size();i++)
+			System.out.println(receipts.get(i));
+			
+		return "redirect:/receipt";
 	}
 
 }
