@@ -30,16 +30,16 @@ h1 {
 	<br>
 	<br>
 	<div class="container">
-		<form:form class="form-inline" modelAttribute="cash_voucher">
-			<form:hidden class="form-control" value="${cash_voucher.cashVoucherId}"
-				path="cashVoucherId" />
+		<form:form class="form-inline" modelAttribute="general_voucher">
+			<form:hidden class="form-control" value="${general_voucher.generalVoucherId}"
+				path="generalVoucherId" />
 
 
 
 			<div class="col-xs-12">
 				<div class="col-xs-4 form-group row">
 					<label for="date" class="col-sm-2 col-form-label">Date:</label>
-					<fmt:formatDate pattern="dd/MM/yyyy" value="${cash_voucher.date}"
+					<fmt:formatDate pattern="dd/MM/yyyy" value="${general_voucher.date}"
 						var="date" />
 					<div class="col-sm-10">
 						<p>
@@ -48,24 +48,24 @@ h1 {
 					</div>
 				</div>
 				<div class="col-xs-4 form-group row">
-					<h3 style="text-align: center">Cash Voucher</h3>
+					<h3 style="text-align: center">General Voucher</h3>
 				</div>
 
 				<div class="col-xs-4 form-group row">
 					<label for="receiptId" class="col-sm-2 col-form-label">No:</label>
 					<div class="col-sm-10">
 						<p>
-							<c:out value="${cash_voucher.cashVoucherId}" />
+							<c:out value="${general_voucher.generalVoucherId}" />
 						</p>
 						<br>
 					</div>
 				</div>
 				<div class="col-xs-10 form-group row">
-					<label for="cashReceivedFrom" class="col-sm-2 col-form-label">Received
-						From</label>
+					<label for="cashReceivedBy" class="col-sm-2 col-form-label">Received
+						By</label>
 					<div class="col-sm-10">
 						<p>
-							<c:out value="${cash_voucher.party.name}" />
+							<c:out value="${general_voucher.party.name}" />
 						</p>
 					</div>
 				</div>
@@ -74,55 +74,14 @@ h1 {
 					<label for="amount" class="col-sm-2 col-form-label">Amount</label>
 					<div class="col-sm-4">
 						<p>
-							<c:out value="Rs:${cash_voucher.amount}/-" />
+							<c:out value="Rs:${general_voucher.amount}/-" />
 						</p>
 					</div>
 				</div>
-
-				<div class="col-xs-10 form-group row">
-					<label for="paymentType" class="col-sm-2 col-form-label">Payment
-						Type:</label>
-					<div class="col-sm-4">
-						<p>
-							<c:out value="${cash_voucher.paymentType}" />
-						</p>
-						<br>
-					</div>
-				</div>
-
-				<div class="col-xs-10 form-group row">
-					<label for="forPaymentOf" class="col-sm-2 col-form-label">For
-						Payment of</label>
-					<div class="col-sm-10">
-						<p>
-							<c:out value="${cash_voucher.forPaymentOf}" />
-						</p>
-						<br>
-					</div>
-				</div>
-
 				<div class="col-xs-3 form-group">
-					<label for="bankName">Bank</label>
+					<label for="cashPaidBy">Paid By</label>
 					<p>
-						<c:out value="${cash_voucher.bankName}" />
-					</p>
-				</div>
-				<div class="col-xs-3 form-group">
-					<label for="bankBranch">Branch</label>
-					<p>
-						<c:out value="${cash_voucher.bankBranch}" />
-					</p>
-				</div>
-				<div class="col-xs-3 form-group">
-					<label for="chequeNo">Cheque No</label>
-					<p>
-						<c:out value="${cash_voucher.chequeNo}" />
-					</p>
-				</div>
-				<div class="col-xs-3 form-group">
-					<label for="cashReceivedBy">Paid By</label>
-					<p>
-						<c:out value="${cash_voucher.cashReceivedBy}" />
+						<c:out value="${general_voucher.cashPaidBy}" />
 					</p>
 					<br> <br>
 				</div>
@@ -137,7 +96,7 @@ h1 {
 				<div class="col-xs-4"></div>
 				<button id="printpagebutton" type="button"
 					class="btn btn-primary btn-sx pull-right" onclick="myFunction()">Print
-					Cash Voucher</button>
+					General Voucher</button>
 			</div>
 		</form:form>
 	</div>
@@ -145,7 +104,7 @@ h1 {
 </body>
 <script type="text/javascript">
 	$(document).ready(function() {
-		$("#cash_voucher_page").addClass('active');
+		$("#general_voucher_page").addClass('active');
 	});
 	function myFunction() {
 

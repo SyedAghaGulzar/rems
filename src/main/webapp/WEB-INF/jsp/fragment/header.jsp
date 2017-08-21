@@ -34,7 +34,7 @@
 			<li id="receipt_page"><a href='<c:url value="/receipt" />'>RECEIPT</a></li>
 			<li id="cash_voucher_page"><a
 				href='<c:url value="/voucher/cash"/>'>CASH VOUCHER</a></li>
-			<li id="general_voucher_page"><a href="#">GENERAL VOUCHER</a></li>
+			<li id="general_voucher_page"><a href='<c:url value="/voucher/general"/>'>GENERAL VOUCHER</a></li>
 		</ul>
 	</div>
 </nav>

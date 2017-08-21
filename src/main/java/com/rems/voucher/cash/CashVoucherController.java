@@ -55,7 +55,7 @@ public class CashVoucherController {
 
 	// save new receipt
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
-	public String saveReceipt(Model model, @ModelAttribute("cash_voucher") CashVoucher cashVoucher) {
+	public String saveCashVoucher(Model model, @ModelAttribute("cash_voucher") CashVoucher cashVoucher) {
 		cashVoucherService.save(cashVoucher);
 		return "redirect:/voucher/cash";
 	}

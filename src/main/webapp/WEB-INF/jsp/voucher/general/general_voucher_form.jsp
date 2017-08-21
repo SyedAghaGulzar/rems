@@ -11,32 +11,32 @@
 			M Rehan Enterprises<br>
 		</h1>
 		<c:choose>
-			<c:when test="${cash_voucher['new']}">
-				<c:set var="action" value="/voucher/cash/add" />
+			<c:when test="${general_voucher['new']}">
+				<c:set var="action" value="/voucher/general/add" />
 				<c:set var="button" value="Save" />
 				<h2 style="text-align: center">
-					Add Cash Voucher<br> <br>
+					Add General Voucher<br> <br>
 				</h2>
 			</c:when>
 			<c:otherwise>
-				<c:set var="action" value="/voucher/cash/update/${cash_voucher.cashVoucherId}" />
+				<c:set var="action" value="/voucher/general/update/${general_voucher.generalVoucherId}" />
 				<c:set var="button" value="Update" />
 				<h2 style="text-align: center">
-					Edit Cash Voucher<br> <br>
+					Edit General Voucher<br> <br>
 				</h2>
 			</c:otherwise>
 		</c:choose>
 
 		<form:form class=".form-horizontal" action="${action}" method="post"
-			modelAttribute="cash_voucher">
-			<form:hidden class="form-control" value="${cash_voucher.cashVoucherId}"
-				path="cashVoucherId" />
+			modelAttribute="general_voucher">
+			<form:hidden class="form-control" value="${general_voucher.generalVoucherId}"
+				path="generalVoucherId" />
 
 			<div class="col-xs-12">
 
 				<div class="col-xs-3 form-group">
 					<label for="date">Date</label>
-					<fmt:formatDate pattern="dd/MM/yyyy" value="${cash_voucher.date}"
+					<fmt:formatDate pattern="dd/MM/yyyy" value="${general_voucher.date}"
 						var="date" />
 					<form:input type="text" path="date" class=" form-control"
 						value="${date}" />
@@ -53,32 +53,8 @@
 					<form:input type="text" class="form-control" path="amount" />
 				</div>
 				<div class="col-xs-3 form-group">
-					<label for="paymentType">Payment Type</label>
-					<form:select path="paymentType" class="form-control">
-						<form:options items="${paymentTypes}" />
-					</form:select>
-				</div>
-
-				<div class="col-xs-6 form-group">
-					<label for="forPaymentOf">For Payment of</label>
-					<form:input type="text" class="form-control" path="forPaymentOf" />
-				</div>
-
-				<div class="col-xs-3 form-group">
-					<label for="bankName">Bank</label>
-					<form:input type="text" class="form-control" path="bankName" />
-				</div>
-				<div class="col-xs-3 form-group">
-					<label for="bankBranch">Branch</label>
-					<form:input type="text" class="form-control" path="bankBranch" />
-				</div>
-				<div class="col-xs-3 form-group">
-					<label for="chequeNo">Cheque No</label>
-					<form:input type="text" class="form-control" path="chequeNo" />
-				</div>
-				<div class="col-xs-3 form-group">
-					<label for="cashReceivedBy">Paid By</label>
-					<form:input type="text" class="form-control" path="cashReceivedBy" />
+					<label for="cashPaidBy">Paid By</label>
+					<form:input type="text" class="form-control" path="cashPaidBy" />
 					<br>
 					<br>
 				</div>
@@ -89,7 +65,7 @@
 				<div class="col-xs-3">
 					<button type="submit" class="btn btn-lg btn-primary btn-sx">${button}</button>
 					<button type="button"
-						onclick="location.href='<c:url value="/voucher/cash" />'"
+						onclick="location.href='<c:url value="/voucher/general" />'"
 						class="btn btn-lg btn-primary btn-sx">Cancel</button>
 				</div>
 			</div>
@@ -101,7 +77,7 @@
 </body>
 <script type="text/javascript">
 	$(document).ready(function() {
-		$("#cash_voucher_page").addClass('active');
+		$("#general_voucher_page").addClass('active');
 	});
 </script>
 

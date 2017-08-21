@@ -28,14 +28,14 @@
 <br>
 
 	<div class="container">
-		<a href='<c:url value="/voucher/cash/add"/>'><button type="button"
-				class="btn btn-primary btn-sx pull-right">Add New Cash Voucher</button> <br><br>
+		<a href='<c:url value="/voucher/general/add"/>'><button type="button"
+				class="btn btn-primary btn-sx pull-right">Add New General Voucher</button> <br><br>
 		</a>
         <div class="row">
 			<div class="col-md-12">
 				<div class="panel panel-primary">
 					<div class="panel-heading">
-						<h3 class="panel-title">Cash Voucher List</h3>						
+						<h3 class="panel-title">General Voucher List</h3>						
 					</div>
 					<br>
         <div class="table-responsive">
@@ -47,40 +47,28 @@
 					<th>Date</th>
 					<th>Party Name</th>
 					<th>Amount</th>
-					<th>Payment Type</th>
-                    <!-- babat -->
-   					<th>For Payment of</th>
-					<th>Bank</th>
-					<th>Branch</th>
-					<th>Cheque No</th>
-					<!-- ReferenceName -->
 					<th>Paid By</th>
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach var="cashVoucher" items="${cash_vouchers}">
+				<c:forEach var="generalVoucher" items="${general_vouchers}">
 					<tr>
-					    <td><a href="/voucher/cash/${cashVoucher.cashVoucherId}">
+					    <td><a href="/voucher/general/${generalVoucher.generalVoucherId}">
 						 <span title="Edit" class="glyphicon glyphicon-pencil" ></span></a>&nbsp;
-				         <a href="/voucher/cash/delete/${cashVoucher.cashVoucherId}"> 
+				         <a href="/voucher/general/delete/${generalVoucher.generalVoucherId}"> 
 				         <span title="Delete" class="glyphicon glyphicon-trash"></span></a>&nbsp;
-						<a href="/voucher/cash/print/${cashVoucher.cashVoucherId}">
+						<a href="/voucher/general/print/${generalVoucher.generalVoucherId}">
 						<span title="Print" class="glyphicon glyphicon-print"></span></a>
 						</td>
 						<td> 
-						${cashVoucher.cashVoucherId}
+						${generalVoucher.generalVoucherId}
 						</td>
-						<fmt:formatDate pattern="dd/MM/yyyy" value="${cashVoucher.date}"
+						<fmt:formatDate pattern="dd/MM/yyyy" value="${generalVoucher.date}"
 							var="date" />
 						<td>${date}</td>
-						<td><a href="/voucher/cash/party/${cashVoucher.party.partyId}">${cashVoucher.party.name}</a></td>
-						<td>${cashVoucher.amount}</td>
-						<td>${cashVoucher.paymentType}</td>
-						<td>${cashVoucher.forPaymentOf}</td>
-						<td>${cashVoucher.bankName}</td>
-						<td>${cashVoucher.bankBranch}</td>
-						<td>${cashVoucher.chequeNo}</td>
-						<td>${cashVoucher.cashReceivedBy}</td>
+						<td><a href="/voucher/general/party/${generalVoucher.party.partyId}">${generalVoucher.party.name}</a></td>
+						<td>${generalVoucher.amount}</td>
+						<td>${generalVoucher.cashPaidBy}</td>
 					</tr>
 				</c:forEach>
 			</tbody>
@@ -95,7 +83,7 @@
 <script type="text/javascript">
 $(document).ready(function() {
     $('#rec_table').DataTable();
-    $("#cash_voucher_page").addClass('active');
+    $("#general_voucher_page").addClass('active');
 } );
 </script>
     

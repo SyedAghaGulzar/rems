@@ -57,7 +57,7 @@ public class CashVoucher {
 
 	@Column(name = "cheque_no")
 	private String chequeNo;
-
+	//field change to paid by on front end
 	@Column(name = "cash_received_by")
 	private String cashReceivedBy;
 
