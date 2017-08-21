@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -19,7 +20,10 @@ import com.rems.enumeration.PaymentType;
 import com.rems.party.Party;
 
 @Entity
-@NamedQuery(name = "CashVoucher.findAll", query = "select c from  CashVoucher c order by c.cashVoucherId desc")
+@NamedQueries({
+@NamedQuery(name = "CashVoucher.findAll", query = "select c from  CashVoucher c order by c.cashVoucherId desc"),
+@NamedQuery(name = "CashVoucher.findAllCashVouchersByParty", query="from CashVoucher c where c.party.partyId=:partyId order by c.cashVoucherId desc")
+})
 public class CashVoucher {
 
 	@Id

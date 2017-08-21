@@ -1,5 +1,7 @@
 package com.rems.voucher.cash;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.rems.enumeration.PaymentType;
 import com.rems.party.PartyService;
+import com.rems.receipt.Receipt;
 
 @Controller
 @RequestMapping("/voucher/cash")
@@ -77,5 +80,13 @@ public class CashVoucherController {
 		model.addAttribute("cash_voucher", cashVoucherService.getCashVoucherById(id));
 		return "voucher/cash/cash_voucher_preview";
 	}
+	// generate cash vouchers for specific party
+		@RequestMapping(value = "/party/{partyId}")
+		public String generatePartyCashVouchers(@ModelAttribute CashVoucher cash_voucher, Model model, @PathVariable int partyId) {
+			List<CashVoucher> cashVouchers = cashVoucherService.findAllCashVouchersByPartyId(partyId);
+			model.addAttribute("cashVoucher",cashVouchers);
+			model.addAttribute("total",cashVoucherService.calculateTotalAmount(cashVouchers));
+			return "voucher/cash/party_cash_voucher_list";
+		}
 
 }

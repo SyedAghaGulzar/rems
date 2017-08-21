@@ -11,6 +11,8 @@ public interface CashVoucherRepository extends CrudRepository<CashVoucher, Integ
 	@Override
     @Query
     public Iterable<CashVoucher> findAll();
+
+	public Iterable<CashVoucher> findAllCashVouchersByParty(@Param("partyId")int partyId);
 	
 	/*
 	 * Custom Query Example

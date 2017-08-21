@@ -35,9 +35,9 @@ public class ReceiptService {
 		receiptRepository.delete(id);
 	}
 	
-	public List<Receipt> findAllByPartyId(int partyId) {
+	public List<Receipt> findAllReceiptsByPartyId(int partyId) {
 		List<Receipt> receipts = new ArrayList<>();
-		receiptRepository.findAllByParty(partyId).forEach(receipts::add);
+		receiptRepository.findAllReceiptsByParty(partyId).forEach(receipts::add);
 		return receipts;
 	}
 	

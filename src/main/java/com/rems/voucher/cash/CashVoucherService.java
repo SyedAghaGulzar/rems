@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.ModelAttribute;
 
 @Service
 public class CashVoucherService {
@@ -33,6 +32,15 @@ public class CashVoucherService {
 
 	public void deleteCashVoucher(int id) {
 		cashVoucherRepository.delete(id);
+	}
+	public List<CashVoucher> findAllCashVouchersByPartyId(int partyId) {
+		List<CashVoucher> cashVouchers = new ArrayList<>();
+		cashVoucherRepository.findAllCashVouchersByParty(partyId).forEach(cashVouchers::add);
+		return cashVouchers;
+	}
+	
+	public double calculateTotalAmount(List<CashVoucher> cashVouchers) {
+		return cashVouchers.stream().mapToDouble(r -> r.getAmount()).sum();
 	}
 
 }

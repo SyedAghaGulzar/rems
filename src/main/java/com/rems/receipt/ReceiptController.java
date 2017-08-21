@@ -82,16 +82,12 @@ public class ReceiptController {
 	
 	// generate receipts for specific party
 	@RequestMapping(value = "/party/{partyId}")
-	public String generatePartyRecipet(@ModelAttribute Receipt receipt, Model model, @PathVariable int partyId) {
-		List<Receipt> receipts = receiptService.findAllByPartyId(partyId);
+	public String generatePartyReceipt(@ModelAttribute Receipt receipt, Model model, @PathVariable int partyId) {
+		List<Receipt> receipts = receiptService.findAllReceiptsByPartyId(partyId);
 		model.addAttribute("receipt",receipts);
 		model.addAttribute("total",receiptService.calculateTotalAmount(receipts));
 		
-		// this for loop is just for proof of concept and must be deleted later
-		for(int i=0; i<receipts.size();i++)
-			System.out.println(receipts.get(i));
-			
-		return "redirect:/receipt";
+		return "receipt/party_receipt_list";
 	}
 
 }

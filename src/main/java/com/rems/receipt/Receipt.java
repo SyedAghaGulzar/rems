@@ -23,7 +23,7 @@ import com.rems.party.Party;
 @Entity
 @NamedQueries({
 @NamedQuery(name = "Receipt.findAll", query="from Receipt r order by r.receiptId desc"),
-@NamedQuery(name = "Receipt.findAllByParty", query="from Receipt r where r.party.partyId=:partyId order by r.receiptId desc")
+@NamedQuery(name = "Receipt.findAllReceiptsByParty", query="from Receipt r where r.party.partyId=:partyId order by r.receiptId desc")
 })
 public class Receipt {
 

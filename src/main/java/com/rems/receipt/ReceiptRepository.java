@@ -13,7 +13,7 @@ public interface ReceiptRepository extends CrudRepository<Receipt, Integer> {
     public Iterable<Receipt> findAll();
 	
 	@Query
-	public Iterable<Receipt> findAllByParty(@Param("partyId") int partyId);
+	public Iterable<Receipt> findAllReceiptsByParty(@Param("partyId") int partyId);
 	
 	/*
 	 * Custom Query Example

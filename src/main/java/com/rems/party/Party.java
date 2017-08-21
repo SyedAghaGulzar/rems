@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import com.rems.receipt.Receipt;
+import com.rems.voucher.cash.CashVoucher;
 
 
 @Entity
@@ -28,6 +29,11 @@ public class Party {
 	
 	@OneToMany(mappedBy="party",fetch = FetchType.LAZY)
 	private List<Receipt> receipts;
+	
+	@OneToMany(mappedBy="party",fetch = FetchType.LAZY)
+	private List<CashVoucher> cashVouchers;
+	
+	
 	
 	public int getPartyId() {
 		return partyId;
@@ -67,6 +73,14 @@ public class Party {
 
 	public void setReceipts(List<Receipt> receipts) {
 		this.receipts = receipts;
+	}
+	
+	public List<CashVoucher> getCashVouchers() {
+		return cashVouchers;
+	}
+
+	public void setCashVouchers(List<CashVoucher> cashVouchers) {
+		this.cashVouchers = cashVouchers;
 	}
 
 	public boolean isNew() {

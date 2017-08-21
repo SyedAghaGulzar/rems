@@ -73,7 +73,7 @@
 						<fmt:formatDate pattern="dd/MM/yyyy" value="${receipt.date}"
 							var="date" />
 						<td>${date}</td>
-						<td>${receipt.party.name}</td>
+						<td><a href="/receipt/party/${receipt.party.partyId}">${receipt.party.name}</a></td>
 						<td>${receipt.amount}</td>
 						<td>${receipt.paymentType}</td>
 						<td>${receipt.forPaymentOf}</td>
