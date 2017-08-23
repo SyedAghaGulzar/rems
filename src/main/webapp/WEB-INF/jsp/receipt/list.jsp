@@ -21,6 +21,7 @@
 .table-striped > tbody > tr:nth-child(2n) > td, .table-striped > tbody > tr:nth-child(2n) > th {
    background-color: lightblue;
 }
+p{text-align:center}
 </style>
 
 </head>
@@ -85,6 +86,7 @@
 				</c:forEach>
 			</tbody>
 		</table>
+		<p><b>Total Amount :</b> ${total} </p>
 		</div>
 		</div>
 		</div>

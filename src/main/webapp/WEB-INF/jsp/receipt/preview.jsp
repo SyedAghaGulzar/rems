@@ -127,18 +127,22 @@ h1 {
 					<br> <br>
 				</div>
 			</div>
-			<div class="col-xs-12">
-				<div class="col-xs-6">
-					<label class="col-sm-2 col-form-label">Signature:</label>
-					<div class="col-sm-6">
-						<p></p>
+				<div class="col-xs-4">
+					<label class="col-sm-2 col-form-label">Receiver</label>
+					<div class="col-sm-3">
 					</div>
+				</div>
+				<div class="col-xs-4">
+					<label class="col-sm-2 col-form-label">Accountant</label>
+				</div>
+				<div class="col-xs-4">
+					<label class="col-sm-2 col-form-label">Proprietor</label>
 				</div>
 				<div class="col-xs-4"></div>
 				<button id="printpagebutton" type="button"
 					class="btn btn-primary btn-sx pull-right" onclick="myFunction()">Print
 					Receipt</button>
-			</div>
+			
 		</form:form>
 	</div>
 
