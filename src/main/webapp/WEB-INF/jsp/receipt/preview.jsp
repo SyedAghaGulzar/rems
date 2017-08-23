@@ -44,6 +44,7 @@ h1 {
 					<div class="col-sm-10">
 						<p>
 							<c:out value="${date}" />
+							&nbsp;
 						</p>
 					</div>
 				</div>
@@ -56,6 +57,7 @@ h1 {
 					<div class="col-sm-10">
 						<p>
 							<c:out value="${receipt.receiptId}" />
+							&nbsp;
 						</p>
 						<br>
 					</div>
@@ -66,6 +68,7 @@ h1 {
 					<div class="col-sm-10">
 						<p>
 							<c:out value="${receipt.party.name}" />
+							&nbsp;
 						</p>
 					</div>
 				</div>
@@ -75,6 +78,7 @@ h1 {
 					<div class="col-sm-4">
 						<p>
 							<c:out value="Rs:${receipt.amount}/-" />
+							&nbsp;
 						</p>
 					</div>
 				</div>
@@ -85,6 +89,7 @@ h1 {
 					<div class="col-sm-4">
 						<p>
 							<c:out value="${receipt.paymentType}" />
+							&nbsp;
 						</p>
 						<br>
 					</div>
@@ -96,6 +101,7 @@ h1 {
 					<div class="col-sm-10">
 						<p>
 							<c:out value="${receipt.forPaymentOf}" />
+							&nbsp;
 						</p>
 						<br>
 					</div>
@@ -105,24 +111,28 @@ h1 {
 					<label for="bankName">Bank</label>
 					<p>
 						<c:out value="${receipt.bankName}" />
+						&nbsp;
 					</p>
 				</div>
 				<div class="col-xs-3 form-group">
 					<label for="bankBranch">Branch</label>
 					<p>
 						<c:out value="${receipt.bankBranch}" />
+						&nbsp;
 					</p>
 				</div>
 				<div class="col-xs-3 form-group">
 					<label for="chequeNo">Cheque No</label>
 					<p>
 						<c:out value="${receipt.chequeNo}" />
+						&nbsp;
 					</p>
 				</div>
 				<div class="col-xs-3 form-group">
 					<label for="cashReceivedBy">Received By</label>
 					<p>
 						<c:out value="${receipt.cashReceivedBy}" />
+						&nbsp;
 					</p>
 					<br> <br>
 				</div>
