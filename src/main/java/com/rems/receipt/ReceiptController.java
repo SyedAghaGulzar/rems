@@ -27,6 +27,7 @@ public class ReceiptController {
 	@RequestMapping
 	public String getAllReceipts(Model model) {
 		model.addAttribute("receipts", receiptService.getAllReceipts());
+		model.addAttribute("total",receiptService.calculateTotalAmount(receiptService.getAllReceipts()));
 		return "receipt/list";
 	}
 
