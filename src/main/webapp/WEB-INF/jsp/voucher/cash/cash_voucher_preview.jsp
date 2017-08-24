@@ -10,7 +10,6 @@ p {
 	text-decoration: none;
 	text-align: center;
 	border-bottom: 1px solid black;
-	padding: 5px;
 }
 
 @page {
@@ -38,12 +37,13 @@ h1 {
 
 			<div class="col-xs-12">
 				<div class="col-xs-4 form-group row">
-					<label for="date" class="col-sm-2 col-form-label">Date:</label>
+					<label for="date" class="col-sm-2 col-form-label">Date</label>
 					<fmt:formatDate pattern="dd/MM/yyyy" value="${cash_voucher.date}"
 						var="date" />
 					<div class="col-sm-10">
 						<p>
 							<c:out value="${date}" />
+							&nbsp;
 						</p>
 					</div>
 				</div>
@@ -52,10 +52,11 @@ h1 {
 				</div>
 
 				<div class="col-xs-4 form-group row">
-					<label for="receiptId" class="col-sm-2 col-form-label">No:</label>
+					<label for="receiptId" class="col-sm-2 col-form-label">No</label>
 					<div class="col-sm-10">
 						<p>
 							<c:out value="${cash_voucher.cashVoucherId}" />
+							&nbsp;
 						</p>
 						<br>
 					</div>
@@ -63,9 +64,10 @@ h1 {
 				<div class="col-xs-10 form-group row">
 					<label for="cashReceivedFrom" class="col-sm-2 col-form-label">Received
 						From</label>
-					<div class="col-sm-10">
+					<div class="col-sm-4">
 						<p>
 							<c:out value="${cash_voucher.party.name}" />
+						    &nbsp;
 						</p>
 					</div>
 				</div>
@@ -75,16 +77,18 @@ h1 {
 					<div class="col-sm-4">
 						<p>
 							<c:out value="Rs:${cash_voucher.amount}/-" />
+						    &nbsp;
 						</p>
 					</div>
 				</div>
 
 				<div class="col-xs-10 form-group row">
 					<label for="paymentType" class="col-sm-2 col-form-label">Payment
-						Type:</label>
+						Type</label>
 					<div class="col-sm-4">
 						<p>
 							<c:out value="${cash_voucher.paymentType}" />
+							&nbsp;
 						</p>
 						<br>
 					</div>
@@ -93,11 +97,11 @@ h1 {
 				<div class="col-xs-10 form-group row">
 					<label for="forPaymentOf" class="col-sm-2 col-form-label">For
 						Payment of</label>
-					<div class="col-sm-10">
+					<div class="col-sm-9">
 						<p>
 							<c:out value="${cash_voucher.forPaymentOf}" />
+							&nbsp;
 						</p>
-						<br>
 					</div>
 				</div>
 
@@ -105,24 +109,28 @@ h1 {
 					<label for="bankName">Bank</label>
 					<p>
 						<c:out value="${cash_voucher.bankName}" />
+						&nbsp;
 					</p>
 				</div>
 				<div class="col-xs-3 form-group">
 					<label for="bankBranch">Branch</label>
 					<p>
 						<c:out value="${cash_voucher.bankBranch}" />
+						&nbsp;
 					</p>
 				</div>
 				<div class="col-xs-3 form-group">
 					<label for="chequeNo">Cheque No</label>
 					<p>
 						<c:out value="${cash_voucher.chequeNo}" />
+						&nbsp;
 					</p>
 				</div>
 				<div class="col-xs-3 form-group">
 					<label for="cashReceivedBy">Paid By</label>
 					<p>
 						<c:out value="${cash_voucher.cashReceivedBy}" />
+						&nbsp;
 					</p>
 					<br> <br>
 				</div>

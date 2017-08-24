@@ -10,7 +10,6 @@ p {
 	text-decoration: none;
 	text-align: center;
 	border-bottom: 1px solid black;
-	padding: 5px;
 }
 
 @page {
@@ -38,7 +37,7 @@ h1 {
 
 			<div class="col-xs-12">
 				<div class="col-xs-4 form-group row">
-					<label for="date" class="col-sm-2 col-form-label">Date:</label>
+					<label for="date" class="col-sm-2 col-form-label">Date</label>
 					<fmt:formatDate pattern="dd/MM/yyyy" value="${receipt.date}"
 						var="date" />
 					<div class="col-sm-10">
@@ -53,7 +52,7 @@ h1 {
 				</div>
 
 				<div class="col-xs-4 form-group row">
-					<label for="receiptId" class="col-sm-2 col-form-label">No:</label>
+					<label for="receiptId" class="col-sm-2 col-form-label">No</label>
 					<div class="col-sm-10">
 						<p>
 							<c:out value="${receipt.receiptId}" />
@@ -65,7 +64,7 @@ h1 {
 				<div class="col-xs-10 form-group row">
 					<label for="cashReceivedFrom" class="col-sm-2 col-form-label">Received
 						From</label>
-					<div class="col-sm-10">
+					<div class="col-sm-4">
 						<p>
 							<c:out value="${receipt.party.name}" />
 							&nbsp;
@@ -85,13 +84,12 @@ h1 {
 
 				<div class="col-xs-10 form-group row">
 					<label for="paymentType" class="col-sm-2 col-form-label">Payment
-						Type:</label>
+						Type</label>
 					<div class="col-sm-4">
 						<p>
 							<c:out value="${receipt.paymentType}" />
 							&nbsp;
 						</p>
-						<br>
 					</div>
 				</div>
 

@@ -10,7 +10,6 @@ p {
 	text-decoration: none;
 	text-align: center;
 	border-bottom: 1px solid black;
-	padding: 5px;
 }
 
 @page {
@@ -38,12 +37,13 @@ h1 {
 
 			<div class="col-xs-12">
 				<div class="col-xs-4 form-group row">
-					<label for="date" class="col-sm-2 col-form-label">Date:</label>
+					<label for="date" class="col-sm-2 col-form-label">Date</label>
 					<fmt:formatDate pattern="dd/MM/yyyy" value="${general_voucher.date}"
 						var="date" />
 					<div class="col-sm-10">
 						<p>
 							<c:out value="${date}" />
+							&nbsp;
 						</p>
 					</div>
 				</div>
@@ -52,21 +52,25 @@ h1 {
 				</div>
 
 				<div class="col-xs-4 form-group row">
-					<label for="receiptId" class="col-sm-2 col-form-label">No:</label>
+					<label for="receiptId" class="col-sm-2 col-form-label">No</label>
 					<div class="col-sm-10">
 						<p>
 							<c:out value="${general_voucher.generalVoucherId}" />
+							&nbsp;
 						</p>
+						<br>
 						<br>
 					</div>
 				</div>
 				<div class="col-xs-10 form-group row">
-					<label for="cashReceivedBy" class="col-sm-2 col-form-label">Received
-						By</label>
-					<div class="col-sm-10">
+					<label for="cashReceivedBy" class="col-sm-2 col-form-label">Debit
+						Paid To</label>
+					<div class="col-sm-4">
 						<p>
 							<c:out value="${general_voucher.party.name}" />
+							&nbsp;
 						</p>
+						<br>
 					</div>
 				</div>
 
@@ -75,15 +79,30 @@ h1 {
 					<div class="col-sm-4">
 						<p>
 							<c:out value="Rs:${general_voucher.amount}/-" />
+							&nbsp;
 						</p>
+						<br>
 					</div>
 				</div>
-				<div class="col-xs-3 form-group">
-					<label for="cashPaidBy">Paid By</label>
+				<div class="col-xs-10 form-group row">
+					<label for="cashPaidBy" class="col-sm-2 col-form-label">Credit Paid By</label>
+					<div class="col-sm-4">
 					<p>
 						<c:out value="${general_voucher.cashPaidBy}" />
+						&nbsp;
 					</p>
-					<br> <br>
+					<br>
+					</div>
+				</div>
+				<div class="col-xs-10 form-group row">
+					<label for="details" class="col-sm-2 col-form-label">Details</label>
+					<div class="col-sm-10">
+						<p>
+							<c:out value="${general_voucher.details}" />
+							&nbsp;
+						</p>
+						<br><br>
+					</div>
 				</div>
 			</div>
 				<div class="col-xs-4">

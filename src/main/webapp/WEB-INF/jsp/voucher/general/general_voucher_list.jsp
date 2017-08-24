@@ -45,9 +45,10 @@
 				    <th>Actions</th>
 					<th>No.</th>
 					<th>Date</th>
-					<th>Party Name</th>
+					<th>Debit</th>
 					<th>Amount</th>
-					<th>Paid By</th>
+					<th>Credit</th>
+					<th>Details</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -69,6 +70,7 @@
 						<td><a href="/voucher/general/party/${generalVoucher.party.partyId}">${generalVoucher.party.name}</a></td>
 						<td>${generalVoucher.amount}</td>
 						<td>${generalVoucher.cashPaidBy}</td>
+						<td>${generalVoucher.details}</td>
 					</tr>
 				</c:forEach>
 			</tbody>

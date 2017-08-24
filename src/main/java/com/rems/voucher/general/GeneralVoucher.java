@@ -47,6 +47,9 @@ public class GeneralVoucher {
 
 	@Column(name = "cash_paid_by")
 	private String cashPaidBy;
+	
+	@Column(name = "details")
+	private String details;
 
 	public int getGeneralVoucherId() {
 		return generalVoucherId;
@@ -96,6 +99,14 @@ public class GeneralVoucher {
 		this.cashPaidBy = cashPaidBy;
 	}
 	
+	public String getDetails() {
+		return details;
+	}
+
+	public void setDetails(String details) {
+		this.details = details;
+	}
+
 	public boolean isNew() {
 		return this.generalVoucherId == -1;
 	}
