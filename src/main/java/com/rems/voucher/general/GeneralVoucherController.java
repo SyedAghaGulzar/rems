@@ -10,9 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.rems.enumeration.PaymentType;
 import com.rems.party.PartyService;
-import com.rems.receipt.Receipt;
 
 @Controller
 @RequestMapping("/voucher/general")
@@ -74,14 +72,14 @@ public class GeneralVoucherController {
 
 	// print receipt
 	@RequestMapping(value = "/print/{id}")
-	public String printGeneralVoucher(@ModelAttribute GeneralVoucher generalVoucher, Model model, @PathVariable int id) {
+	public String printGeneralVoucher(Model model, @PathVariable int id) {
 		model.addAttribute("general_voucher", generalVoucherService.getGeneralVoucherById(id));
 		return "voucher/general/general_voucher_preview";
 	}
 	
 	// generate cash vouchers for specific party
 	@RequestMapping(value = "/paidTo/{partyId}")
-	public String paidToPartyGeneralVouchers(@ModelAttribute GeneralVoucher general_voucher, Model model, @PathVariable int partyId) {
+	public String paidToPartyGeneralVouchers(Model model, @PathVariable int partyId) {
 		List<GeneralVoucher> generalVouchers = generalVoucherService.findAllGeneralVouchersByPaidToParty(partyId);
 		model.addAttribute("generalVoucher",generalVouchers);
 		model.addAttribute("total",generalVoucherService.calculateTotalAmount(generalVouchers));
@@ -90,10 +88,17 @@ public class GeneralVoucherController {
 
 	// generate cash vouchers for specific party
 	@RequestMapping(value = "/paidBy/{partyId}")
-	public String paidByPartyGeneralVouchers(@ModelAttribute GeneralVoucher general_voucher, Model model, @PathVariable int partyId) {
+	public String paidByPartyGeneralVouchers(Model model, @PathVariable int partyId) {
 		List<GeneralVoucher> generalVouchers = generalVoucherService.findAllGeneralVouchersByPaidByParty(partyId);
 		model.addAttribute("generalVoucher",generalVouchers);
 		model.addAttribute("total",generalVoucherService.calculateTotalAmount(generalVouchers));
 		return "voucher/general/party_general_voucher_list";
+	}
+	
+	// generate cash vouchers for specific party
+	@RequestMapping(value = "/ledger/{mainPartyId}/{referencePartyId}")
+	public String ledger(Model model,@PathVariable int mainPartyId ,@PathVariable int referencePartyId) {
+		generalVoucherService.calculateAccountLedger(mainPartyId, referencePartyId);
+		return "redirect:/voucher/general";
 	}
 }

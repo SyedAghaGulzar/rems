@@ -4,8 +4,6 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -16,14 +14,14 @@ import javax.persistence.NamedQuery;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-import com.rems.enumeration.PaymentType;
 import com.rems.party.Party;
 
 @Entity
 @NamedQueries({
 @NamedQuery(name = "GeneralVoucher.findAll", query = "select g from  GeneralVoucher g order by g.generalVoucherId desc"),
 @NamedQuery(name = "GeneralVoucher.findAllGeneralVouchersByCashPaidTo", query="from GeneralVoucher g where g.cashPaidTo.partyId=:cashPaidTo order by g.generalVoucherId desc"),
-@NamedQuery(name = "GeneralVoucher.findAllGeneralVouchersByCashPaidBy", query="from GeneralVoucher g where g.cashPaidBy.partyId=:cashPaidBy order by g.generalVoucherId desc")
+@NamedQuery(name = "GeneralVoucher.findAllGeneralVouchersByCashPaidBy", query="from GeneralVoucher g where g.cashPaidBy.partyId=:cashPaidBy order by g.generalVoucherId desc"),
+@NamedQuery(name = "GeneralVoucher.findGeneralVouchersForLedger", query="from GeneralVoucher g where g.cashPaidBy.partyId in (?1,?2) and g.cashPaidTo.partyId in (?1,?2) order by g.generalVoucherId")
 })
 public class GeneralVoucher {
 
