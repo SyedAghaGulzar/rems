@@ -67,7 +67,7 @@ h1 {
 						Paid To</label>
 					<div class="col-sm-4">
 						<p>
-							<c:out value="${general_voucher.party.name}" />
+							<c:out value="${general_voucher.cashPaidTo.name}" />
 							&nbsp;
 						</p>
 						<br>
@@ -88,7 +88,7 @@ h1 {
 					<label for="cashPaidBy" class="col-sm-2 col-form-label">Credit Paid By</label>
 					<div class="col-sm-4">
 					<p>
-						<c:out value="${general_voucher.cashPaidBy}" />
+						<c:out value="${general_voucher.cashPaidBy.name}" />
 						&nbsp;
 					</p>
 					<br>

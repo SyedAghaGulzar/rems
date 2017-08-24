@@ -12,7 +12,9 @@ public interface GeneralVoucherRepository extends CrudRepository<GeneralVoucher,
     @Query
     public Iterable<GeneralVoucher> findAll();
 
-	public Iterable<GeneralVoucher> findAllGeneralVouchersByParty(@Param("partyId")int partyId);
+	public Iterable<GeneralVoucher> findAllGeneralVouchersByCashPaidTo(@Param("cashPaidTo")int cashPaidTo);
+	
+	public Iterable<GeneralVoucher> findAllGeneralVouchersByCashPaidBy(@Param("cashPaidBy")int cashPaidBy);
 	
 	/*
 	 * Custom Query Example

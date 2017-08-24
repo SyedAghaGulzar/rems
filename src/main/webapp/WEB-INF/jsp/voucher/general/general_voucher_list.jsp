@@ -67,9 +67,9 @@
 						<fmt:formatDate pattern="dd/MM/yyyy" value="${generalVoucher.date}"
 							var="date" />
 						<td>${date}</td>
-						<td><a href="/voucher/general/party/${generalVoucher.party.partyId}">${generalVoucher.party.name}</a></td>
+						<td><a href="/voucher/general/paidTo/${generalVoucher.cashPaidTo.partyId}">${generalVoucher.cashPaidTo.name}</a></td>
 						<td>${generalVoucher.amount}</td>
-						<td>${generalVoucher.cashPaidBy}</td>
+						<td><a href="/voucher/general/paidBy/${generalVoucher.cashPaidBy.partyId}">${generalVoucher.cashPaidBy.name}</a></td>
 						<td>${generalVoucher.details}</td>
 					</tr>
 				</c:forEach>

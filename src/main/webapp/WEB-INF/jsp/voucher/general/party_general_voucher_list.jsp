@@ -42,7 +42,8 @@ p{text-align:center}
 				<tr>
 				    
 					<th>No.</th>
-					<th>Party Name</th>
+					<th>Paid To</th>
+					<th>Paid By</th>
 					<th>Amount</th>
 				</tr>
 			</thead>
@@ -52,7 +53,8 @@ p{text-align:center}
 						<td> 
 						${generalVoucher.generalVoucherId}
 						</td>
-						<td>${generalVoucher.party.name}</td>
+						<td>${generalVoucher.cashPaidTo.name}</td>
+						<td>${generalVoucher.cashPaidBy.name}</td>
 						<td>${generalVoucher.amount}</td>
 					</tr>
 				</c:forEach>

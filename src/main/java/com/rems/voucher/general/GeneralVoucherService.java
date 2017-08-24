@@ -33,9 +33,15 @@ public class GeneralVoucherService {
 	public void deleteGeneralVoucher(int id) {
 		generalVoucherRepository.delete(id);
 	}
-	public List<GeneralVoucher> findAllGeneralVouchersByPartyId(int partyId) {
+	public List<GeneralVoucher> findAllGeneralVouchersByPaidToParty(int partyId) {
 		List<GeneralVoucher> generalVouchers = new ArrayList<>();
-		generalVoucherRepository.findAllGeneralVouchersByParty(partyId).forEach(generalVouchers::add);
+		generalVoucherRepository.findAllGeneralVouchersByCashPaidTo(partyId).forEach(generalVouchers::add);
+		return generalVouchers;
+	}
+	
+	public List<GeneralVoucher> findAllGeneralVouchersByPaidByParty(int partyId) {
+		List<GeneralVoucher> generalVouchers = new ArrayList<>();
+		generalVoucherRepository.findAllGeneralVouchersByCashPaidBy(partyId).forEach(generalVouchers::add);
 		return generalVouchers;
 	}
 	

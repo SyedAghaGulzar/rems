@@ -43,8 +43,8 @@
 				</div>
 
 				<div class="col-xs-3 form-group">
-					<label for="party.partyId">Debit Paid To</label>
-					<form:select path="party.partyId" class="form-control">
+					<label for="cashPaidTo.partyId">Debit Paid To</label>
+					<form:select path="cashPaidTo.partyId" class="form-control">
 						<form:options itemValue="partyId" itemLabel="name" items="${partyList}" />
 					</form:select>
 				</div>
@@ -53,9 +53,9 @@
 					<form:input type="text" class="form-control" path="amount" />
 				</div>
 				<div class="col-xs-3 form-group">
-					<label for="cashPaidBy">Credit Paid By</label>
-					<form:select path="cashPaidBy" class="form-control">
-						<form:options itemValue="name" itemLabel="name" items="${partyList}" />
+					<label for="cashPaidBy.partyId">Credit Paid By</label>
+					<form:select path="cashPaidBy.partyId" class="form-control">
+						<form:options itemValue="partyId" itemLabel="name" items="${partyList}" />
 					</form:select>
 					<br>
 					<br>

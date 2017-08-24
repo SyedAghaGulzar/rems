@@ -22,7 +22,8 @@ import com.rems.party.Party;
 @Entity
 @NamedQueries({
 @NamedQuery(name = "GeneralVoucher.findAll", query = "select g from  GeneralVoucher g order by g.generalVoucherId desc"),
-@NamedQuery(name = "GeneralVoucher.findAllGeneralVouchersByParty", query="from GeneralVoucher g where g.party.partyId=:partyId order by g.generalVoucherId desc")
+@NamedQuery(name = "GeneralVoucher.findAllGeneralVouchersByCashPaidTo", query="from GeneralVoucher g where g.cashPaidTo.partyId=:cashPaidTo order by g.generalVoucherId desc"),
+@NamedQuery(name = "GeneralVoucher.findAllGeneralVouchersByCashPaidBy", query="from GeneralVoucher g where g.cashPaidBy.partyId=:cashPaidBy order by g.generalVoucherId desc")
 })
 public class GeneralVoucher {
 
@@ -31,22 +32,20 @@ public class GeneralVoucher {
 	@Column(name = "general_voucher_id")
 	private int generalVoucherId = -1;
 
-	@ManyToOne
-	@JoinColumn(name = "party_id", nullable = true)
-	private Party party;
-
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	@Column(name = "date")
 	private Date date;
 
-	@Column(name = "cash_received_by")
-	private String cashReceivedBy;
+	@ManyToOne
+	@JoinColumn(name = "cash_paid_to", nullable = true)
+	private Party cashPaidTo;
 	
 	@Column(name = "amount")
 	private Double amount;
 
-	@Column(name = "cash_paid_by")
-	private String cashPaidBy;
+	@ManyToOne
+	@JoinColumn(name = "cash_paid_by", nullable = true)
+	private Party cashPaidBy;
 	
 	@Column(name = "details")
 	private String details;
@@ -59,28 +58,12 @@ public class GeneralVoucher {
 		this.generalVoucherId = generalVoucherId;
 	}
 
-	public Party getParty() {
-		return party;
-	}
-
-	public void setParty(Party party) {
-		this.party = party;
-	}
-
 	public Date getDate() {
 		return date;
 	}
 
 	public void setDate(Date date) {
 		this.date = date;
-	}
-
-	public String getCashReceivedBy() {
-		return cashReceivedBy;
-	}
-
-	public void setCashReceivedBy(String cashReceivedBy) {
-		this.cashReceivedBy = cashReceivedBy;
 	}
 
 	public Double getAmount() {
@@ -90,15 +73,24 @@ public class GeneralVoucher {
 	public void setAmount(Double amount) {
 		this.amount = amount;
 	}
+	
 
-	public String getCashPaidBy() {
+	public Party getCashPaidTo() {
+		return cashPaidTo;
+	}
+
+	public void setCashPaidTo(Party cashPaidTo) {
+		this.cashPaidTo = cashPaidTo;
+	}
+
+	public Party getCashPaidBy() {
 		return cashPaidBy;
 	}
 
-	public void setCashPaidBy(String cashPaidBy) {
+	public void setCashPaidBy(Party cashPaidBy) {
 		this.cashPaidBy = cashPaidBy;
 	}
-	
+
 	public String getDetails() {
 		return details;
 	}

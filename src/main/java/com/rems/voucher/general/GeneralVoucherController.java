@@ -78,13 +78,22 @@ public class GeneralVoucherController {
 		model.addAttribute("general_voucher", generalVoucherService.getGeneralVoucherById(id));
 		return "voucher/general/general_voucher_preview";
 	}
+	
 	// generate cash vouchers for specific party
-		@RequestMapping(value = "/party/{partyId}")
-		public String generatePartyGeneralVouchers(@ModelAttribute GeneralVoucher general_voucher, Model model, @PathVariable int partyId) {
-			List<GeneralVoucher> generalVouchers = generalVoucherService.findAllGeneralVouchersByPartyId(partyId);
-			model.addAttribute("generalVoucher",generalVouchers);
-			model.addAttribute("total",generalVoucherService.calculateTotalAmount(generalVouchers));
-			return "voucher/general/party_general_voucher_list";
-		}
+	@RequestMapping(value = "/paidTo/{partyId}")
+	public String paidToPartyGeneralVouchers(@ModelAttribute GeneralVoucher general_voucher, Model model, @PathVariable int partyId) {
+		List<GeneralVoucher> generalVouchers = generalVoucherService.findAllGeneralVouchersByPaidToParty(partyId);
+		model.addAttribute("generalVoucher",generalVouchers);
+		model.addAttribute("total",generalVoucherService.calculateTotalAmount(generalVouchers));
+		return "voucher/general/party_general_voucher_list";
+	}
 
+	// generate cash vouchers for specific party
+	@RequestMapping(value = "/paidBy/{partyId}")
+	public String paidByPartyGeneralVouchers(@ModelAttribute GeneralVoucher general_voucher, Model model, @PathVariable int partyId) {
+		List<GeneralVoucher> generalVouchers = generalVoucherService.findAllGeneralVouchersByPaidByParty(partyId);
+		model.addAttribute("generalVoucher",generalVouchers);
+		model.addAttribute("total",generalVoucherService.calculateTotalAmount(generalVouchers));
+		return "voucher/general/party_general_voucher_list";
+	}
 }
