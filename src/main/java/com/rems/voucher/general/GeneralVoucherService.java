@@ -56,6 +56,9 @@ public class GeneralVoucherService {
 		
 		String mainPartyName,referencePartyName;
 		
+		if(generalVouchers.isEmpty())
+			return;
+		
 		if(generalVouchers.get(0).getCashPaidTo().getPartyId() == mainPartyId) {
 			mainPartyName = generalVouchers.get(0).getCashPaidTo().getName();
 			referencePartyName = generalVouchers.get(0).getCashPaidBy().getName();
@@ -70,7 +73,7 @@ public class GeneralVoucherService {
 		System.out.println("Main Party\t: " +mainPartyName+"\nReference Party : "+referencePartyName);
 		
 		double total=0.00, totalDebit=0.00, totalCredit=0.00;
-		System.out.println("\nID \t Dr \t Cr \t Balance");
+		System.out.println("\nID \t\t Dr \t\t\t Cr \t\t\t Balance");
 		
 		for (GeneralVoucher voucher : generalVouchers) {
 			
@@ -78,16 +81,16 @@ public class GeneralVoucherService {
 			if(voucher.getCashPaidTo().getPartyId() == mainPartyId) {
 				total+=voucher.getAmount();
 				totalDebit+=voucher.getAmount();
-				System.out.print(" \t "+voucher.getAmount()+" \t --- \t ");
+				System.out.print(" \t\t "+voucher.getAmount()+" \t\t ------ \t\t ");
 			}else {
 				total-=voucher.getAmount();				
 				totalCredit+=voucher.getAmount();
-				System.out.print(" \t --- \t "+voucher.getAmount()+" \t ");
+				System.out.print(" \t\t ------ \t\t "+voucher.getAmount()+" \t\t ");
 			}
-			System.out.println((total < 0 ? total*-1+"Cr" :total+"Cr"));
+			System.out.println((total < 0 ? total*-1+"Cr" :total+"Dr"));
 			
 		}
-		System.out.println("Total \t "+totalDebit+" \t "+totalCredit+" \t "+ (total < 0 ? total*-1+"Cr" :total+"Cr"));
+		System.out.println("Total \t\t "+totalDebit+" \t\t "+totalCredit+" \t\t "+ (total < 0 ? total*-1+"Cr" :total+"Dr"));
 		System.out.println("\n================================\n");
 	}
 

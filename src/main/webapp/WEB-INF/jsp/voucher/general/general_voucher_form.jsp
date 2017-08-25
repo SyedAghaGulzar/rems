@@ -57,10 +57,8 @@
 					<form:select path="cashPaidBy.partyId" class="form-control">
 						<form:options itemValue="partyId" itemLabel="name" items="${partyList}" />
 					</form:select>
-					<br>
-					<br>
 				</div>
-				<div class="col-xs-3 form-group">
+				<div class="col-xs-6 form-group">
 					<label for="detalis">Details</label>
 					<form:input type="text" class="form-control" path="details" />
 				    <br>

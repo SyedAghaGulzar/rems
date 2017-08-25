@@ -28,8 +28,19 @@
 <br>
 
 	<div class="container">
+<%-- 	<c:set var="generalVoucher" value="${general_vouchers}"/> --%>
+<%-- 	<c:forEach var="generalVoucher" items="${general_vouchers}"> --%>
+<%-- 		<a href='<c:url value="/voucher/general/ledger/${generalVoucher.cashPaidTo.partyId}/${generalVoucher.cashPaidBy.partyId}"/>'><button type="button" --%>
+<!-- 				class="btn btn-primary btn-sx">Account Ledger</button> -->
+<!-- 		</a> -->
+<%-- 		</c:forEach> --%>
+		
+		<a href='<c:url value="/voucher/general/ledger"/>'><button type="button"
+				class="btn btn-primary btn-sx">Account Ledger</button>
+		</a>
+		
 		<a href='<c:url value="/voucher/general/add"/>'><button type="button"
-				class="btn btn-primary btn-sx pull-right">Add New General Voucher</button> <br><br>
+				class="btn btn-primary btn-sx pull-right">Add New General Voucher</button><br><br>
 		</a>
         <div class="row">
 			<div class="col-md-12">

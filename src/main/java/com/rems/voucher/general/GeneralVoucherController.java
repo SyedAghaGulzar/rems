@@ -2,6 +2,8 @@ package com.rems.voucher.general;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -101,4 +103,19 @@ public class GeneralVoucherController {
 		generalVoucherService.calculateAccountLedger(mainPartyId, referencePartyId);
 		return "redirect:/voucher/general";
 	}
+	
+	// show account ledger form
+	@RequestMapping(value = "/ledger", method = RequestMethod.GET)
+	public String accountLedgerForm(Model model) {
+		model.addAttribute("partyList",partyService.getAllParties());
+		return "voucher/general/ledger/account_ledger_form";
+	}
+	
+	// show account ledger form
+	@RequestMapping(value = "/ledger", method = RequestMethod.POST)
+	public String accountLedgerForm(HttpServletRequest request , Model model) {
+		generalVoucherService.calculateAccountLedger(Integer.parseInt(request.getParameter("mainParty")), Integer.parseInt(request.getParameter("referenceParty")));
+		return "redirect:/voucher/general";
+	}
+
 }
