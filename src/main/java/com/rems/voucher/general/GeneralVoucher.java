@@ -21,7 +21,7 @@ import com.rems.party.Party;
 @NamedQuery(name = "GeneralVoucher.findAll", query = "select g from  GeneralVoucher g order by g.generalVoucherId desc"),
 @NamedQuery(name = "GeneralVoucher.findAllGeneralVouchersByCashPaidTo", query="from GeneralVoucher g where g.cashPaidTo.partyId=:cashPaidTo order by g.generalVoucherId desc"),
 @NamedQuery(name = "GeneralVoucher.findAllGeneralVouchersByCashPaidBy", query="from GeneralVoucher g where g.cashPaidBy.partyId=:cashPaidBy order by g.generalVoucherId desc"),
-@NamedQuery(name = "GeneralVoucher.findGeneralVouchersForLedger", query="from GeneralVoucher g where g.cashPaidBy.partyId in (?1,?2) and g.cashPaidTo.partyId in (?1,?2) order by g.generalVoucherId")
+@NamedQuery(name = "GeneralVoucher.findGeneralVouchersForLedger", query="from GeneralVoucher g where g.cashPaidBy.partyId in (?1,?2) and g.cashPaidTo.partyId in (?1,?2) and (g.date>=?3 or ?3 is null) and (g.date<=?4 or ?4 is null)  order by g.generalVoucherId")
 })
 public class GeneralVoucher {
 

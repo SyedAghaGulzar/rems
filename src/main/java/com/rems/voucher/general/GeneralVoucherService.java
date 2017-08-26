@@ -1,6 +1,7 @@
 package com.rems.voucher.general;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,10 +50,16 @@ public class GeneralVoucherService {
 		return generalVouchers.stream().mapToDouble(r -> r.getAmount()).sum();
 	}
 	
-	public void calculateAccountLedger(int mainPartyId, int referencePartyId) {
+	public List<GeneralVoucher> findGeneralVouchersForLedger(int mainPartyId, int referencePartyId, Date from, Date to) {
+		List<GeneralVoucher> generalVouchers = new ArrayList<>();
+		generalVoucherRepository.findGeneralVouchersForLedger(mainPartyId, referencePartyId, from, to).forEach(generalVouchers::add);
+		return generalVouchers;
+	}
+	
+	public void calculateAccountLedger(int mainPartyId, int referencePartyId, Date from, Date to) {
 		List<GeneralVoucher> generalVouchers = new ArrayList<>();
 
-		generalVoucherRepository.findGeneralVouchersForLedger(mainPartyId, referencePartyId).forEach(generalVouchers::add);
+		generalVoucherRepository.findGeneralVouchersForLedger(mainPartyId, referencePartyId, from, to).forEach(generalVouchers::add);
 		
 		String mainPartyName,referencePartyName;
 		

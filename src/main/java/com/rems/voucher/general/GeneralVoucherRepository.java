@@ -1,6 +1,9 @@
 package com.rems.voucher.general;
 
 import org.springframework.stereotype.Repository;
+
+import java.util.Date;
+
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
@@ -16,7 +19,7 @@ public interface GeneralVoucherRepository extends CrudRepository<GeneralVoucher,
 	
 	public Iterable<GeneralVoucher> findAllGeneralVouchersByCashPaidBy(@Param("cashPaidBy")int cashPaidBy);
 	
-	public Iterable<GeneralVoucher> findGeneralVouchersForLedger(int mainPartyId, int referencePartyId);
+	public Iterable<GeneralVoucher> findGeneralVouchersForLedger(int mainPartyId, int referencePartyId, Date from, Date to);
 
 	/*
 	 * Custom Query Example

@@ -25,7 +25,7 @@
 
 				<div class="col-xs-3 form-group">
 					<label for="mainParty">Main Party</label> 
-					<select id="mainParty" name="mainParty" class="form-control">
+					<select id="mainPartyId" name="mainPartyId" class="form-control">
 						<c:forEach var="party" items="${partyList}">
 							<option value="${party.partyId}">${party.name}</option>
 						</c:forEach>
@@ -33,7 +33,7 @@
 				</div>
 
 				<div class="col-xs-3 form-group">
-					<label for="referenceParty">Reference Party</label> <select id="referenceParty" name="referenceParty"
+					<label for="referenceParty">Reference Party</label> <select id="referencePartyId" name="referencePartyId"
 						class="form-control">
 						<c:forEach var="party" items="${partyList}">
 							<option value="${party.partyId}">${party.name}</option>
