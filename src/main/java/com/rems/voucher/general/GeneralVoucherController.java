@@ -118,7 +118,7 @@ public class GeneralVoucherController {
 
 	// show account ledger form
 	@RequestMapping(value = "/ledger", method = RequestMethod.POST)
-	public String accountLedgerForm(HttpServletRequest request , Model model) throws ParseException {
+	public String accountLedger(HttpServletRequest request , Model model){
 
 		int mainPartyId = ParamFactory.getInt(request, "mainPartyId");
 		int referencePartyId = ParamFactory.getInt(request, "referencePartyId");

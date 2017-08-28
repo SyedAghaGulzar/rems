@@ -3,6 +3,7 @@ package com.rems.configuration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -29,9 +30,10 @@ public class CustomWebSecurityConfigurerAdapter extends WebSecurityConfigurerAda
     protected void configure(HttpSecurity http) throws Exception {
         
         http.authorizeRequests()
-          //.antMatchers("/receipt").permitAll() //logout url http://localhost:9090/login?logout
+          //.antMatchers(HttpMethod.POST,"/voucher/general/ledger").permitAll() //logout url http://localhost:9090/login?logout
           .anyRequest().authenticated()
-          .and().httpBasic()
-          .and().formLogin();
+          //.and().httpBasic()
+          .and().formLogin()
+          .and().csrf().disable();
     }
 }
