@@ -116,10 +116,10 @@
 									</c:choose>
 									<c:choose>
 										<c:when test="${total < 0}">
-											<td>${total * -1}Cr</td>
+											<td><fmt:formatNumber type="number" maxFractionDigits="5" value="${total * -1}"/> Cr</td>
 										</c:when>
 										<c:otherwise>
-											<td>${total}Dr</td>
+											<td><fmt:formatNumber type="number" maxFractionDigits="5" value="${total}"/> Dr</td>
 										</c:otherwise>
 									</c:choose>
 								</tr>
@@ -129,14 +129,14 @@
 								<td></td>
 								<td></td>
 								<td><strong>Total:</strong></td>
-								<td><strong>${totalDebit}</strong></td>
-								<td><strong>${totalCredit}</strong></td>
+								<td><strong><fmt:formatNumber type="number" maxFractionDigits="5" value="${totalDebit}"/></strong></td>
+								<td><strong><fmt:formatNumber type="number" maxFractionDigits="5" value="${totalCredit}"/></strong></td>
 								<c:choose>
 									<c:when test="${total < 0}">
-										<td><strong>${total * -1} Cr</strong></td>
+										<td><fmt:formatNumber type="number" maxFractionDigits="5" value="${total * -1}"/> Cr</td>
 									</c:when>
 									<c:otherwise>
-										<td><strong>${total} Dr</strong></td>
+										<td><fmt:formatNumber type="number" maxFractionDigits="5" value="${total}"/> Dr</td>
 									</c:otherwise>
 								</c:choose>
 							</tr>
