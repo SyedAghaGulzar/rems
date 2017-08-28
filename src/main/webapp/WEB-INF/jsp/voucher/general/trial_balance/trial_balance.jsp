@@ -30,6 +30,10 @@
 	{
 	background-color: #fff;
 }
+@page {
+	size: auto;
+	margin: 5mm;
+}
 </style>
 
 </head>
@@ -47,14 +51,15 @@
 					</h3>
 				</div>
 				<br>
-				<div>
+				<div class="pull-right">
 					<jsp:useBean id="now" class="java.util.Date" scope="request" />
-					<br /> <strong>Printed Date:</strong>
+				    <strong>Printed Date:</strong>
 					<fmt:formatDate type="date" pattern="dd/MM/yyyy" value="${now}" />
 					<br /> <strong>Printed Time:</strong>
 					<fmt:formatDate type="time" value="${now}" />
 
 				</div>
+				<br>
 				<br>
 				<div class="table-responsive">
 					<table class="table nowrap table table-striped" style="border: 0">
@@ -71,8 +76,8 @@
 							<c:forEach var="row" items="${data}">
 								<tr>
 									<td>${row[0]}</td>
-									<td>${row[1]}</td>
-									<td>${row[2]}</td>
+									<td><fmt:formatNumber type="number" maxFractionDigits="5" value="${row[1]}"/></td>
+									<td><fmt:formatNumber type="number" maxFractionDigits="5" value="${row[2]}"/></td>
 								</tr>
 								<c:set var="totalDebit"	value="${totalDebit + row[1]}" />
 								<c:set var="totalCredit" value="${totalCredit + row[2]}" />
@@ -80,11 +85,13 @@
 
 							<tr>
 								<td><strong>Total:</strong></td>
-								<td><strong>${totalDebit}</strong></td>
-								<td><strong>${totalCredit}</strong></td>
+								<td><strong><fmt:formatNumber type="number" maxFractionDigits="5" value="${totalDebit}"/></strong></td>
+								<td><strong><fmt:formatNumber type="number" maxFractionDigits="5" value="${totalCredit}"/></strong></td>
 							</tr>
 							<tr>
-								<td><strong>Net Income: </strong> ${totalDebit} - ${totalCredit} = ${totalDebit - totalCredit}</td>
+								<td><strong>Net Income: </strong><fmt:formatNumber type="number" maxFractionDigits="5" value="${totalDebit}"/> - 
+								<fmt:formatNumber type="number" maxFractionDigits="5" value="${totalCredit}"/> = 
+								<fmt:formatNumber type="number" maxFractionDigits="5" value="${totalDebit - totalCredit}"/></td>
 								<td></td>
 								<td></td>
 							</tr>  

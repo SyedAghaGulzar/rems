@@ -30,6 +30,10 @@
 	{
 	background-color: #fff;
 }
+@page {
+	size: auto;
+	margin: 5mm;
+}
 </style>
 
 </head>
@@ -62,14 +66,15 @@
 				<div>
 					<strong>Account Name</strong> ${referenceParty.partyId} -
 					${referenceParty.name}
-
-					<jsp:useBean id="now" class="java.util.Date" scope="request" />
-					<br /> <strong>Printed Date:</strong>
-					<fmt:formatDate type="date" pattern="dd/MM/yyyy" value="${now}" />
-					<br /> <strong>Printed Time:</strong>
-					<fmt:formatDate type="time" value="${now}" />
-
+					<div class="pull-right">
+						<jsp:useBean id="now" class="java.util.Date" scope="request" />
+					    <strong>Printed Date:</strong>
+						<fmt:formatDate type="date" pattern="dd/MM/yyyy" value="${now}" />
+						<br /> <strong>Printed Time:</strong>
+						<fmt:formatDate type="time" value="${now}" />
+					</div>
 				</div>
+				<br>
 				<br>
 				<div class="table-responsive">
 					<table class="table nowrap table table-striped" style="border: 0">
