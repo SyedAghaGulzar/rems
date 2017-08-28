@@ -91,7 +91,7 @@
 							<tr>
 								<td><strong>Net Income: </strong><fmt:formatNumber type="number" maxFractionDigits="5" value="${totalDebit}"/> - 
 								<fmt:formatNumber type="number" maxFractionDigits="5" value="${totalCredit}"/> = 
-								<fmt:formatNumber type="number" maxFractionDigits="5" value="${totalDebit - totalCredit}"/></td>
+								<strong><fmt:formatNumber type="number" maxFractionDigits="5" value="${totalDebit - totalCredit}"/></strong></td>
 								<td></td>
 								<td></td>
 							</tr>  
