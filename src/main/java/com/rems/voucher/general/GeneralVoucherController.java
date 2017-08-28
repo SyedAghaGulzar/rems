@@ -102,12 +102,12 @@ public class GeneralVoucherController {
 		return "voucher/general/party_general_voucher_list";
 	}
 
-	/*// generate cash vouchers for specific party
-	@RequestMapping(value = "/ledger/{mainPartyId}/{referencePartyId}")
-	public String ledger(Model model, @PathVariable int mainPartyId, @PathVariable int referencePartyId) {
-		generalVoucherService.calculateAccountLedger(mainPartyId, referencePartyId);
-		return "redirect:/voucher/general";
-	}*/
+	@RequestMapping(value = "/trialbalance/{mainPartyId}")
+	public String trailBalance(Model model, @PathVariable int mainPartyId) {
+		model.addAttribute("mainParty",partyService.getPartyById(mainPartyId));
+		model.addAttribute("data",generalVoucherService.calculateTrialBalance(mainPartyId));
+		return "voucher/general/trial_balance/trial_balance";
+	}
 
 	// show account ledger form
 	@RequestMapping(value = "/ledger", method = RequestMethod.GET)
