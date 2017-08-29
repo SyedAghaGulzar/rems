@@ -142,15 +142,28 @@
 							</tr>
 						</tbody>
 					</table>
+					<button id="printpagebutton" type="button"
+					class="btn btn-primary btn-sx pull-right" onclick="myFunction()">Print
+					Ledger</button>
 				</div>
 			</div>
 		</div>
 	</div>
 </body>
+<script type="text/javascript">
+	function myFunction() {
+
+		var printButton = document.getElementById("printpagebutton");
+		printButton.style.visibility = 'hidden';
+		document.title = "M Rehan Enterprises";
+		window.print();
+		printButton.style.visibility = 'visible';
+	}
+</script>
 
 <script type="text/javascript">
 	$(document).ready(function() {
-		$("#general_voucher_page").addClass('active');
+		$("#dashboard_page").addClass('active');
 	});
 </script>
 

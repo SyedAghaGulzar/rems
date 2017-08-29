@@ -60,7 +60,7 @@ p{text-align:center}
 				</c:forEach>
 			</tbody>
 		</table>
-		<p><b>Total Amount :</b> ${total} </p>
+		<p><b>Total Amount :</b> <fmt:formatNumber type="number" maxFractionDigits="5" value="${total}"/> </p>
 		</div>
 		</div>
 		</div>

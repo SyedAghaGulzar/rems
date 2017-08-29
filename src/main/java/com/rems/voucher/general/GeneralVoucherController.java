@@ -1,7 +1,5 @@
 package com.rems.voucher.general;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -102,12 +100,12 @@ public class GeneralVoucherController {
 		return "voucher/general/party_general_voucher_list";
 	}
 
-	@RequestMapping(value = "/trialbalance/{mainPartyId}")
+	/*@RequestMapping(value = "/trialbalance/{mainPartyId}")
 	public String trailBalance(Model model, @PathVariable int mainPartyId) {
 		model.addAttribute("mainParty",partyService.getPartyById(mainPartyId));
 		model.addAttribute("data",generalVoucherService.calculateTrialBalance(mainPartyId));
 		return "voucher/general/trial_balance/trial_balance";
-	}
+	}*/
 
 	// show account ledger form
 	@RequestMapping(value = "/ledger", method = RequestMethod.GET)
@@ -116,7 +114,7 @@ public class GeneralVoucherController {
 		return "voucher/general/ledger/account_ledger_form";
 	}
 
-	// show account ledger form
+	// show account ledger
 	@RequestMapping(value = "/ledger", method = RequestMethod.POST)
 	public String accountLedger(HttpServletRequest request , Model model){
 
@@ -129,5 +127,24 @@ public class GeneralVoucherController {
 			 .addAttribute("mainPartyId",mainPartyId);
 		return "voucher/general/ledger/account_ledger";
 	}
+	// show trialbalance form
+		@RequestMapping(value = "/trialbalance", method = RequestMethod.GET)
+		public String trialBalanceForm(Model model) {
+			model.addAttribute("partyList", partyService.getAllParties());
+			return "voucher/general/trial_balance/trialbalance_form";
+		}
+
+		// show trialbalance
+		@RequestMapping(value = "/trialbalance", method = RequestMethod.POST)
+		public String trialBalance(HttpServletRequest request , Model model){
+
+			int mainPartyId = ParamFactory.getInt(request, "mainPartyId");
+			Date from = ParamFactory.getDate(request, "from");
+			Date to = ParamFactory.getDate(request, "to");
+			model.addAttribute("data",generalVoucherService.calculateTrialBalance(mainPartyId,from,to));
+			model.addAttribute("mainPartyId",mainPartyId);
+			model.addAttribute("mainParty",partyService.getPartyById(mainPartyId));
+			return "voucher/general/trial_balance/trial_balance";
+		}
 
 }

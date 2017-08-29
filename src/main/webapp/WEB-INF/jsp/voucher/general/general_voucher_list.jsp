@@ -28,17 +28,6 @@
 <br>
 
 	<div class="container">
-<%-- 	<c:set var="generalVoucher" value="${general_vouchers}"/> --%>
-<%-- 	<c:forEach var="generalVoucher" items="${general_vouchers}"> --%>
-<%-- 		<a href='<c:url value="/voucher/general/ledger/${generalVoucher.cashPaidTo.partyId}/${generalVoucher.cashPaidBy.partyId}"/>'><button type="button" --%>
-<!-- 				class="btn btn-primary btn-sx">Account Ledger</button> -->
-<!-- 		</a> -->
-<%-- 		</c:forEach> --%>
-		
-		<a href='<c:url value="/voucher/general/ledger"/>'><button type="button"
-				class="btn btn-primary btn-sx">Account Ledger</button>
-		</a>
-		
 		<a href='<c:url value="/voucher/general/add"/>'><button type="button"
 				class="btn btn-primary btn-sx pull-right">Add New General Voucher</button><br><br>
 		</a>
@@ -78,7 +67,7 @@
 						<fmt:formatDate pattern="dd/MM/yyyy" value="${generalVoucher.date}"
 							var="date" />
 						<td>${date}</td>
-						<td><a href="/voucher/general/trialbalance/${generalVoucher.cashPaidTo.partyId}">${generalVoucher.cashPaidTo.name}</a></td>
+						<td><a href="/voucher/general/paidTo/${generalVoucher.cashPaidTo.partyId}">${generalVoucher.cashPaidTo.name}</a></td>
 						<td>${generalVoucher.amount}</td>
 						<td><a href="/voucher/general/paidBy/${generalVoucher.cashPaidBy.partyId}">${generalVoucher.cashPaidBy.name}</a></td>
 						<td>${generalVoucher.details}</td>

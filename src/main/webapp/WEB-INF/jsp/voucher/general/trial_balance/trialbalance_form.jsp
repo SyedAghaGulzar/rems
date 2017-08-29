@@ -10,7 +10,7 @@
 		<h1>
 			M Rehan Enterprises<br>
 		</h1>
-		<form class=".form-horizontal" action="/voucher/general/ledger" method="post">
+		<form class=".form-horizontal" action="/voucher/general/trialbalance" method="post">
 
 			<div class="col-xs-12">
 				<div class="col-xs-3 form-group">
@@ -26,15 +26,6 @@
 				<div class="col-xs-3 form-group">
 					<label for="mainParty">Main Party</label> 
 					<select id="mainPartyId" name="mainPartyId" class="form-control">
-						<c:forEach var="party" items="${partyList}">
-							<option value="${party.partyId}">${party.name}</option>
-						</c:forEach>
-					</select>
-				</div>
-
-				<div class="col-xs-3 form-group">
-					<label for="referenceParty">Reference Party</label> <select id="referencePartyId" name="referencePartyId"
-						class="form-control">
 						<c:forEach var="party" items="${partyList}">
 							<option value="${party.partyId}">${party.name}</option>
 						</c:forEach>
