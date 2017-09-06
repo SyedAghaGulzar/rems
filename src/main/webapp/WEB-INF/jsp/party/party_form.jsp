@@ -46,7 +46,10 @@
 					<label for="address">Address</label>
 					<form:input type="text" class="form-control" path="address" />
 				</div>
-
+				<div class="col-xs-3 form-group">
+					<label for="address">Opening Balance</label>
+					<form:input type="text" class="form-control" path="openingBalance" />
+				</div>
 			</div>
 			<div class="row">
 					<div class="col-xs-3"></div>

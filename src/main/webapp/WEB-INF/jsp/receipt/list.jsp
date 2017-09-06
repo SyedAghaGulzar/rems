@@ -46,16 +46,17 @@ p{text-align:center}
 				    <th>Actions</th>
 					<th>No.</th>
 					<th>Date</th>
-					<th>Party Name</th>
+					<th>Party</th>
+					<th>Account</th>
 					<th>Amount</th>
 					<th>Payment Type</th>
                     <!-- babat -->
    					<th>For Payment of</th>
-					<th>Bank</th>
+					<!-- <th>Bank</th>
 					<th>Branch</th>
 					<th>Cheque No</th>
-					<!-- ReferenceName -->
-					<th>Received By</th>
+					ReferenceName
+					<th>Received By</th> -->
 				</tr>
 			</thead>
 			<tbody>
@@ -68,20 +69,21 @@ p{text-align:center}
 						<a href="/receipt/print/${receipt.receiptId}">
 						<span title="Print" class="glyphicon glyphicon-print"></span></a>
 						</td>
-						<td> 
-						${receipt.receiptId}
+						<td>
+						CR-<fmt:formatNumber minIntegerDigits="4" pattern="#" value="${receipt.receiptId}" /> 
 						</td>
 						<fmt:formatDate pattern="dd/MM/yyyy" value="${receipt.date}"
 							var="date" />
 						<td>${date}</td>
 						<td><a href="/receipt/party/${receipt.party.partyId}">${receipt.party.name}</a></td>
+						<td>${receipt.account.name}</td>
 						<td>${receipt.amount}</td>
 						<td>${receipt.paymentType}</td>
 						<td>${receipt.forPaymentOf}</td>
-						<td>${receipt.bankName}</td>
+						<%-- <td>${receipt.bankName}</td>
 						<td>${receipt.bankBranch}</td>
 						<td>${receipt.chequeNo}</td>
-						<td>${receipt.cashReceivedBy}</td>
+						<td>${receipt.cashReceivedBy}</td> --%>
 					</tr>
 				</c:forEach>
 			</tbody>

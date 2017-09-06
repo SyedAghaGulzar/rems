@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.rems.account.AccountService;
+
 @Controller
 @RequestMapping("/party")
 public class PartyController {
@@ -15,11 +17,14 @@ public class PartyController {
 	@Autowired
 	private PartyService partyService;
 
+	@Autowired 
+	private AccountService accountService;
 	
 	// view all parties
 	@RequestMapping
 	public String getAllParties(Model model) {
 		model.addAttribute("parties", partyService.getAllParties());
+		model.addAttribute("accounts",accountService.getAllAccounts());
 		return "party/party_list";
 	}
 	
